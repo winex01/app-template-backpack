@@ -16,6 +16,7 @@
     },
     "require-dev": {
         "backpack/generators": "^4.0",
+        "barryvdh/laravel-debugbar": "^3.9",
         "beyondcode/laravel-query-detector": "^1.7",
         "fakerphp/faker": "^1.9.1",
         "laravel/pint": "^1.0",
