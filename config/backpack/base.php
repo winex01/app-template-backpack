@@ -133,7 +133,11 @@ return [
 
     // The guard that protects the Backpack admin panel.
     // If null, the config.auth.defaults.guard value will be used.
-    'guard' => 'backpack',
+    // 'guard' => 'backpack',
+    // assign null, so the config of add-ons of backpack permission manager will be use(config/auth.php) 
+    //  - by doing this, i can use auth() instead of backpack_auth()
+    'guard' => null,
+
 
     // The password reset configuration for Backpack.
     // If null, the config.auth.defaults.passwords value will be used.
