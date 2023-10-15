@@ -9,6 +9,8 @@
         "backpack/crud": "^6.2",
         "backpack/filemanager": "^3.0",
         "backpack/permissionmanager": "^7.1",
+        "backpack/theme-coreuiv2": "^1.2",
+        "backpack/theme-coreuiv4": "^1.1",
         "backpack/theme-tabler": "^1.1",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.10",
