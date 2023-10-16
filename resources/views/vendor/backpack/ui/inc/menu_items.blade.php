@@ -21,3 +21,4 @@
     <x-backpack::menu-dropdown-header title="Package" />
     <x-backpack::menu-dropdown-item title="Web Artisan Tinker" icon="la la-key" :link="url('tinker')" />
 </x-backpack::menu-dropdown>
+<x-backpack::menu-item title="Menu items" icon="la la-question" :link="backpack_url('menu-item')" />
