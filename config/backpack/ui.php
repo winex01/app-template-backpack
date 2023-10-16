@@ -60,7 +60,7 @@ return [
     // The string below will be passed through the url() helper.
     // - default: '' (project root)
     // - alternative: 'admin' (the admin's dashboard)
-    'home_link' => 'admin',
+    'home_link' => '/dashboard',
 
     // Menu logo. You can replace this with an <img> tag if you have a logo.
     'project_logo'   => env('APP_NAME', '<b>Back</b>pack'),
