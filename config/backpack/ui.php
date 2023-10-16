@@ -18,8 +18,8 @@ return [
     // and choosing that view_namespace instead of the default one. Backpack will load a file from there
     // if it exists, otherwise it will load it from the fallback namespace.
 
-    'view_namespace' => 'backpack.theme-tabler::',
-    'view_namespace_fallback' => 'backpack.theme-tabler::',
+    'view_namespace' => 'backpack.theme-coreuiv2::',
+    'view_namespace_fallback' => 'backpack.theme-coreuiv2::',
 
     /*
     |--------------------------------------------------------------------------
@@ -60,7 +60,7 @@ return [
     // The string below will be passed through the url() helper.
     // - default: '' (project root)
     // - alternative: 'admin' (the admin's dashboard)
-    'home_link' => 'admin',
+    'home_link' => '/dashboard',
 
     // Menu logo. You can replace this with an <img> tag if you have a logo.
     'project_logo'   => env('APP_NAME', '<b>Back</b>pack'),
