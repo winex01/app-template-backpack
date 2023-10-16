@@ -19,6 +19,8 @@ class MenuItemCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
 
+    use \App\Traits\CrudPermissionTrait;
+
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
      * 
@@ -29,6 +31,9 @@ class MenuItemCrudController extends CrudController
         CRUD::setModel(\App\Models\MenuItem::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/menu-item');
         CRUD::setEntityNameStrings('menu item', 'menu items');
+
+        // parameters add 'reorder' permission to the existing/default crud operation permission
+        $this->setAccessUsingPermissions('reorder'); 
     }
 
     /**
