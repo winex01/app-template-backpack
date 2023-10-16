@@ -10,7 +10,7 @@ use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 trait CrudPermissionTrait
 {
     // the operations defined for CRUD controller
-    public array $operations = ['list', 'show', 'create', 'update', 'delete', 'revision'];
+    public array $operations = ['list', 'show', 'create', 'update', 'delete', 'revise'];
 
 
     /**
