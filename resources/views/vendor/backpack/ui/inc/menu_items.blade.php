@@ -1,24 +1,127 @@
-{{-- This file is used for menu items by any Backpack v6 theme --}}
-<li class="nav-item"><a class="nav-link" href="{{ backpack_url('dashboard') }}"><i class="la la-home nav-icon"></i> {{ trans('backpack::base.dashboard') }}</a></li>
+@php
+
+use App\Models\MenuItem;
+
+$menus = MenuItem::whereNull('parent_id')->orderBy('lft')->get();
+
+@endphp
 
 
-{{-- <x-backpack::menu-dropdown title="Authentication" icon="la la-group">
-    <x-backpack::menu-dropdown-header title="Authentication" />
-    <x-backpack::menu-dropdown-item title="Users" icon="la la-user" :link="backpack_url('user')" />
-    <x-backpack::menu-dropdown-item title="Roles" icon="la la-group" :link="backpack_url('role')" />
-    <x-backpack::menu-dropdown-item title="Permissions" icon="la la-key" :link="backpack_url('permission')" />
-</x-backpack::menu-dropdown>  --}}
+@foreach ($menus as $menu)
+    @php
+        $subMenus = MenuItem::where('parent_id', $menu->id)->orderBy('lft')->get();
+        $subMenusPermissions = $subMenus->whereNotNull('icon')->whereNotNull('url');
+        $subMenusPermissions = $subMenusPermissions->pluck('permission');
+    @endphp
+
+    @if ($subMenus->isEmpty())
+
+        @can($menu->permission)
+            
+            <x-backpack::menu-item title="{{ $menu->label }}" icon="{{ $menu->icon }}" :link="backpack_url($menu->url)" />
+        
+        @endcan
+    
+    @else
+        {{-- if menu has submenu/nested --}}
+        @canany($subMenusPermissions)
+
+            <x-backpack::menu-dropdown title="{{ $menu->label }}" icon="{{ $menu->icon }}">
+
+                @foreach ($subMenus as $subMenu)
+        
+                    @if ($subMenu->url == null && $subMenu->icon == null)
+                        {{-- check if there is a next menu-item, if yes then show this header, otherwise dont --}}
+                        
+                        @php
+                            $headerSubMenus = MenuItem::where('parent_id', $menu->id)
+                                                ->where('lft', '>', $subMenu->lft)
+                                                ->orderBy('lft')
+                                                ->get();
+
+                            $displayHeader = false;
+
+                            // loop to below header sub menus
+                            foreach ($headerSubMenus as $headerSubMenu) {
+
+                                // if found an item that has null url and null icon that means it's another header so we break the loop
+                                if ($headerSubMenu->url == null && $headerSubMenu->icon == null) {
+                                    // exit loop
+                                    break;
+                                }
+
+                                if ($headerSubMenu->permission == null) {
+                                    if ($headerSubMenu->url != null) {
+                                        $displayHeader = true;
+                                        // exit loop, no need to proceed
+                                        break;
+                                    }
+                                }else {
+                                    // if permission != null, we check it first
+                                    if (auth()->user()->can($headerSubMenu->permission)) {
+                                        $displayHeader = true;
+                                        // exit loop, no need to proceed
+                                        break;
+                                    }
+                                }
+
+                            }
+
+                        @endphp
 
 
-<x-backpack::menu-dropdown title="Installed Package" icon="la la-puzzle-piece">
-    <x-backpack::menu-dropdown-header title="Add-ons" />
-    <x-backpack::menu-dropdown title="Authentication" icon="la la-user" nested="true">
-        <x-backpack::menu-dropdown-item title="Users" icon="la la-user" :link="backpack_url('user')" />
-        <x-backpack::menu-dropdown-item title="Roles" icon="la la-group" :link="backpack_url('role')" />
-        <x-backpack::menu-dropdown-item title="Permissions" icon="la la-key" :link="backpack_url('permission')" />
-    </x-backpack::menu-dropdown>
-    <x-backpack::menu-dropdown-item :title="trans('backpack::crud.file_manager')" icon="la la-files-o" :link="backpack_url('elfinder')" />
-    <x-backpack::menu-dropdown-header title="Package" />
-    <x-backpack::menu-dropdown-item title="Web Artisan Tinker" icon="la la-key" :link="url('tinker')" />
-</x-backpack::menu-dropdown>
-<x-backpack::menu-item title="Menu items" icon="la la-question" :link="backpack_url('menu-item')" />
+                        @if ($displayHeader)
+
+                            <x-backpack::menu-dropdown-header title="{{ $subMenu->label }}" />
+
+                        @endif
+                
+                    @else
+
+                        @php
+                            $subSubMenus = MenuItem::where('parent_id', $subMenu->id)->orderBy('lft')->get();
+                            $subSubMenusPermissions = $subSubMenus->whereNotNull('icon')->whereNotNull('url');
+                            $subSubMenusPermissions = $subSubMenusPermissions->pluck('permission');
+                        @endphp
+
+                        @if ($subSubMenus->isEmpty())
+                            
+                            @can($subMenu->permission)
+                    
+                                <x-backpack::menu-dropdown-item title="{{ $subMenu->label }}" icon="{{ $subMenu->icon }}" :link="url($subMenu->url)" />
+                            
+                            @endcan
+                        
+                        @else
+                            {{-- if subMenu have subMenu too or child --}}
+                            @canany($subSubMenusPermissions)
+                            
+                                <x-backpack::menu-dropdown title="{{ $subMenu->label }}" icon="{{ $subMenu->icon }}" nested="true">
+
+                                    @foreach ($subSubMenus as $subSubMenu)
+                                        
+                                        @can($subSubMenu->permission)
+                                            
+                                            <x-backpack::menu-dropdown-item title="{{ $subSubMenu->label }}" icon="{{ $subSubMenu->icon }}" :link="backpack_url($subSubMenu->url)" />
+                                        
+                                        @endcan
+
+                                    @endforeach
+
+                                </x-backpack::menu-dropdown>
+
+                            @endcanany
+                        
+                        @endif
+
+                    @endif
+                
+                @endforeach
+            
+            </x-backpack::menu-dropdown>
+        
+        @endcanany
+
+    @endif
+
+@endforeach
