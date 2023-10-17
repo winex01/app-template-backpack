@@ -81,10 +81,6 @@ class MenuItemCrudController extends CrudController
         CRUD::set('reorder.label', 'label');
         // maximum number of nesting allowed
         CRUD::set('reorder.max_level', 3);
-
-        // extras:
-        // CRUD::disableReorder();
-        // CRUD::isReorderEnabled();
     }
 
     private function reorderColumns()

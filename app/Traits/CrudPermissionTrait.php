@@ -50,6 +50,7 @@ trait CrudPermissionTrait
             }
         }
     }
+
 }
 
 // TODO:: admin related permission
