@@ -18,7 +18,12 @@ $menus = MenuItem::whereNull('parent_id')->orderBy('lft')->get();
 
         @can($menu->permission)
             
-            <x-backpack::menu-item title="{{ $menu->label }}" icon="{{ $menu->icon }}" :link="backpack_url($menu->url)" />
+            <x-backpack::menu-item 
+                title="{{ $menu->label }}" 
+                icon="{{ $menu->icon }}" 
+                :link="backpack_url($menu->url)" 
+                target="{{ $menu->open_new_tab ? '_blank' : '' }}" 
+            />
         
         @endcan
     
@@ -88,7 +93,12 @@ $menus = MenuItem::whereNull('parent_id')->orderBy('lft')->get();
                             
                             @can($subMenu->permission)
                     
-                                <x-backpack::menu-dropdown-item title="{{ $subMenu->label }}" icon="{{ $subMenu->icon }}" :link="url($subMenu->url)" />
+                                <x-backpack::menu-dropdown-item 
+                                    title="{{ $subMenu->label }}" 
+                                    icon="{{ $subMenu->icon }}" 
+                                    :link="url($subMenu->url)" 
+                                    target="{{ $subMenu->open_new_tab ? '_blank' : '' }}" 
+                                />
                             
                             @endcan
                         
@@ -102,7 +112,12 @@ $menus = MenuItem::whereNull('parent_id')->orderBy('lft')->get();
                                         
                                         @can($subSubMenu->permission)
                                             
-                                            <x-backpack::menu-dropdown-item title="{{ $subSubMenu->label }}" icon="{{ $subSubMenu->icon }}" :link="backpack_url($subSubMenu->url)" />
+                                            <x-backpack::menu-dropdown-item 
+                                                title="{{ $subSubMenu->label }}" 
+                                                icon="{{ $subSubMenu->icon }}" 
+                                                :link="backpack_url($subSubMenu->url)" 
+                                                target="{{ $subSubMenu->open_new_tab ? '_blank' : '' }}" 
+                                            />
                                         
                                         @endcan
 
