@@ -1,62 +1,127 @@
 @php
+
 use App\Models\MenuItem;
+
+$menus = MenuItem::whereNull('parent_id')->orderBy('lft')->get();
+
 @endphp
 
-@php
-	$menus = MenuItem::whereNull('parent_id')->orderBy('lft')->get();
-@endphp
 
 @foreach ($menus as $menu)
     @php
         $subMenus = MenuItem::where('parent_id', $menu->id)->orderBy('lft')->get();
+        $subMenusPermissions = $subMenus->whereNotNull('icon')->whereNotNull('url');
+        $subMenusPermissions = $subMenusPermissions->pluck('permission');
     @endphp
-
 
     @if ($subMenus->isEmpty())
 
-        <x-backpack::menu-item title="{{ $menu->label }}" icon="{{ $menu->icon }}" :link="backpack_url($menu->url)" />
+        @can($menu->permission)
+            
+            <x-backpack::menu-item title="{{ $menu->label }}" icon="{{ $menu->icon }}" :link="backpack_url($menu->url)" />
+        
+        @endcan
     
     @else
         {{-- if menu has submenu/nested --}}
-        <x-backpack::menu-dropdown title="{{ $menu->label }}" icon="{{ $menu->icon }}">
-    
-            @foreach ($subMenus as $subMenu)
-    
-                @if ($subMenu->url == null && $subMenu->icon == null)
+        @canany($subMenusPermissions)
+
+            <x-backpack::menu-dropdown title="{{ $menu->label }}" icon="{{ $menu->icon }}">
+
+                @foreach ($subMenus as $subMenu)
         
-                    <x-backpack::menu-dropdown-header title="{{ $subMenu->label }}" />
-            
-                @else
-
-                    @php
-                        $subSubMenus = MenuItem::where('parent_id', $subMenu->id)->orderBy('lft')->get();
-                    @endphp
-
-                    @if ($subSubMenus->isEmpty())
+                    @if ($subMenu->url == null && $subMenu->icon == null)
+                        {{-- check if there is a next menu-item, if yes then show this header, otherwise dont --}}
                         
-                        <x-backpack::menu-dropdown-item title="{{ $subMenu->label }}" icon="{{ $subMenu->icon }}" :link="url($subMenu->url)" />
-                    
+                        @php
+                            $headerSubMenus = MenuItem::where('parent_id', $menu->id)
+                                                ->where('lft', '>', $subMenu->lft)
+                                                ->orderBy('lft')
+                                                ->get();
+
+                            $displayHeader = false;
+
+                            // loop to below header sub menus
+                            foreach ($headerSubMenus as $headerSubMenu) {
+
+                                // if found an item that has null url and null icon that means it's another header so we break the loop
+                                if ($headerSubMenu->url == null && $headerSubMenu->icon == null) {
+                                    // exit loop
+                                    break;
+                                }
+
+                                if ($headerSubMenu->permission == null) {
+                                    if ($headerSubMenu->url != null) {
+                                        $displayHeader = true;
+                                        // exit loop, no need to proceed
+                                        break;
+                                    }
+                                }else {
+                                    // if permission != null, we check it first
+                                    if (auth()->user()->can($headerSubMenu->permission)) {
+                                        $displayHeader = true;
+                                        // exit loop, no need to proceed
+                                        break;
+                                    }
+                                }
+
+                            }
+
+                        @endphp
+
+
+                        @if ($displayHeader)
+
+                            <x-backpack::menu-dropdown-header title="{{ $subMenu->label }}" />
+
+                        @endif
+                
                     @else
-                        {{-- if subMenu have subMenu too or child --}}
-                        <x-backpack::menu-dropdown title="{{ $subMenu->label }}" icon="{{ $subMenu->icon }}" nested="true">
 
-                            @foreach ($subSubMenus as $subSubMenu)
-                                
-                                <x-backpack::menu-dropdown-item title="{{ $subSubMenu->label }}" icon="{{ $subSubMenu->icon }}" :link="backpack_url($subSubMenu->url)" />
+                        @php
+                            $subSubMenus = MenuItem::where('parent_id', $subMenu->id)->orderBy('lft')->get();
+                            $subSubMenusPermissions = $subSubMenus->whereNotNull('icon')->whereNotNull('url');
+                            $subSubMenusPermissions = $subSubMenusPermissions->pluck('permission');
+                        @endphp
 
-                            @endforeach
-
-                        </x-backpack::menu-dropdown>
+                        @if ($subSubMenus->isEmpty())
+                            
+                            @can($subMenu->permission)
                     
-                    @endif
+                                <x-backpack::menu-dropdown-item title="{{ $subMenu->label }}" icon="{{ $subMenu->icon }}" :link="url($subMenu->url)" />
+                            
+                            @endcan
+                        
+                        @else
+                            {{-- if subMenu have subMenu too or child --}}
+                            @canany($subSubMenusPermissions)
+                            
+                                <x-backpack::menu-dropdown title="{{ $subMenu->label }}" icon="{{ $subMenu->icon }}" nested="true">
 
-                @endif
+                                    @foreach ($subSubMenus as $subSubMenu)
+                                        
+                                        @can($subSubMenu->permission)
+                                            
+                                            <x-backpack::menu-dropdown-item title="{{ $subSubMenu->label }}" icon="{{ $subSubMenu->icon }}" :link="backpack_url($subSubMenu->url)" />
+                                        
+                                        @endcan
+
+                                    @endforeach
+
+                                </x-backpack::menu-dropdown>
+
+                            @endcanany
+                        
+                        @endif
+
+                    @endif
+                
+                @endforeach
             
-            @endforeach
+            </x-backpack::menu-dropdown>
         
-        </x-backpack::menu-dropdown>
-    
+        @endcanany
+
     @endif
 
 @endforeach
-{{-- TODO:: add permission --}}
