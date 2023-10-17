@@ -18,6 +18,7 @@ class MenuItemCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\ReorderOperation;
 
     use \App\Traits\CrudPermissionTrait;
 
@@ -72,6 +73,18 @@ class MenuItemCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+    }
+
+    protected function setupReorderOperation()
+    {
+        // model attribute to be shown on draggable items
+        CRUD::set('reorder.label', 'label');
+        // maximum number of nesting allowed
+        CRUD::set('reorder.max_level', 3);
+
+        // extras:
+        // CRUD::disableReorder();
+        // CRUD::isReorderEnabled();
     }
 
     private function reorderColumns()
