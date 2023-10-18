@@ -29,7 +29,22 @@ $menus = MenuItem::whereNull('parent_id')->orderBy('lft')->get();
     
     @else
         {{-- if menu has submenu/nested --}}
-        @canany($subMenusPermissions)
+        {{-- check if subMenu has child: if yes, then merge the array to the $subMenusPermissions in canany to show parent dropdown --}}
+        @php
+            $subSubMenusPermissions = [];
+            foreach ($subMenus as $subMenu) {
+                $subSubMenus = MenuItem::where('parent_id', $subMenu->id)->orderBy('lft')->get();
+                $subSubMenusPermissions = $subSubMenus->whereNotNull('icon')->whereNotNull('url');
+                $subSubMenusPermissions = $subSubMenusPermissions->pluck('permission');
+
+                if ($subSubMenusPermissions->isNotEmpty()) {
+                    break;
+                }
+            }
+
+        @endphp
+
+        @canany($subMenusPermissions->merge($subSubMenusPermissions))
 
             <x-backpack::menu-dropdown title="{{ $menu->label }}" icon="{{ $menu->icon }}">
 
