@@ -26,7 +26,7 @@ class UsersTableSeeder extends Seeder
                 'email' => 'admin@admin.com',
                 'email_verified_at' => NULL,
                 'password' => '$2y$10$rMIOGOMf6CAC/91ObusITuME43fAI6R1ZoJTw50iG49tkLF9UVaAy',
-                'remember_token' => '7oFP5PL39zKpbjSOsbKZ6fP69tatYxoh7PjMGEcBlwaqYUIiAI2hUHW4jpOh',
+                'remember_token' => 'LiaqSXiE5O6sMk8TJz13Px2fv5hfMq75YV3w4lxfKlbOgL0gqB6rY5KRS5me',
                 'created_at' => '2023-10-13 15:35:41',
                 'updated_at' => '2023-10-14 04:52:53',
             ),
@@ -36,10 +36,10 @@ class UsersTableSeeder extends Seeder
                 'name' => 'Test User',
                 'email' => 'test@test.com',
                 'email_verified_at' => NULL,
-                'password' => '$2y$10$0nPjYU8g.YJuYVicK7.2z.38Vz1ZQ9eW5/i6OLAfzrczLpJ0vZisK',
+                'password' => '$2y$10$GQcmLS27ZsSn77TL4r03TOuL9P6CLheM/cTOA3bBwFoCLFBiMhI8.',
                 'remember_token' => NULL,
                 'created_at' => '2023-10-13 16:03:22',
-                'updated_at' => '2023-10-15 07:19:29',
+                'updated_at' => '2023-10-17 03:23:35',
             ),
             2 => 
             array (
