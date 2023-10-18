@@ -27,6 +27,38 @@ class RolesTableSeeder extends Seeder
                 'created_at' => '2023-10-15 07:07:03',
                 'updated_at' => '2023-10-15 07:07:03',
             ),
+            1 => 
+            array (
+                'id' => 2,
+                'name' => 'menu_items',
+                'guard_name' => 'web',
+                'created_at' => '2023-10-16 14:33:32',
+                'updated_at' => '2023-10-16 14:33:32',
+            ),
+            2 => 
+            array (
+                'id' => 3,
+                'name' => 'Users',
+                'guard_name' => 'web',
+                'created_at' => '2023-10-16 23:44:37',
+                'updated_at' => '2023-10-16 23:44:37',
+            ),
+            3 => 
+            array (
+                'id' => 4,
+                'name' => 'Roles',
+                'guard_name' => 'web',
+                'created_at' => '2023-10-16 23:58:49',
+                'updated_at' => '2023-10-16 23:58:49',
+            ),
+            4 => 
+            array (
+                'id' => 5,
+                'name' => 'Permissions',
+                'guard_name' => 'web',
+                'created_at' => '2023-10-16 23:59:13',
+                'updated_at' => '2023-10-16 23:59:13',
+            ),
         ));
         
         
