@@ -20,10 +20,14 @@ class Debugbar
         // DEBUGBAR_ENABLED=true
         // DEBUGBAR_OPEN_STORAGE=true
         
-        if (auth()->check() && auth()->user()->cannot('admin_debugbar')) {
-            \Debugbar::disable();
+        \Debugbar::disable();
+        
+        if (auth()->check() && auth()->user()->can('admin_debugbar')) {
+            
+            \Debugbar::enable();
+            
         }
-
+        
         return $next($request);
     }
 }
