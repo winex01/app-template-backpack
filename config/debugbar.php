@@ -15,6 +15,7 @@ return [
      */
 
     'enabled' => env('DEBUGBAR_ENABLED', false),
+    'enabled_all' => env('DEBUGBAR_ENABLED_ALL', false), // check middleware
     'except' => [
         'telescope*',
         'horizon*',
