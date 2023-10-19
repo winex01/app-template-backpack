@@ -38,8 +38,9 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             
-            // Backpack Add-Ons
+            // Backpack/Packages
             \App\Http\Middleware\FileManager::class,
+            \App\Http\Middleware\Debugbar::class,
         ],
 
         'api' => [
