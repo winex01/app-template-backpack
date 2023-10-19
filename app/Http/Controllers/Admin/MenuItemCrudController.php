@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Traits\CrudPermissionTrait;
-use App\Http\Requests\MenuItemRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
@@ -16,7 +15,7 @@ class MenuItemCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation { update as traitUpdate; }
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ReorderOperation;
@@ -59,7 +58,7 @@ class MenuItemCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(MenuItemRequest::class);
+        CRUD::field('label')->validationRules('required|min:3');
         CRUD::setFromDb(); // set fields from db columns.
 
         $this->crud->removeFields($this->reorderColumns());
@@ -82,6 +81,25 @@ class MenuItemCrudController extends CrudController
         CRUD::set('reorder.label', 'label');
         // maximum number of nesting allowed
         CRUD::set('reorder.max_level', 3);
+    }
+    
+    // extend update operation
+    public function update()
+    {
+        $configElfidnerUrl = ltrim(config('elfinder.route.prefix'), '/');
+
+        // the config elfinder should match the route.prefix and URL field to avoid security breach, please check FileManager middleware
+        if ($configElfidnerUrl != request()->url) { 
+            // Prevent the update if the ID is 8
+            // You can return a response or perform any other action as needed
+            // show a success message
+            \Alert::error('The elfinder config route prefix should match the URL field.')->flash();
+        
+            return redirect()->back();
+        }
+
+        // Continue with the update logic for other cases
+        return $this->traitUpdate();
     }
 
     private function reorderColumns()
