@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Traits\CrudPermissionTrait;
+use Illuminate\Support\Facades\Hash;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\PermissionManager\app\Http\Requests\UserStoreCrudRequest as StoreRequest;
 use Backpack\PermissionManager\app\Http\Requests\UserUpdateCrudRequest as UpdateRequest;
-use Illuminate\Support\Facades\Hash;
 
 /**
  * Class UserCrudController
@@ -20,7 +21,7 @@ class UserCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
 
-    use \App\Traits\CrudPermissionTrait;
+    use CrudPermissionTrait;
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
