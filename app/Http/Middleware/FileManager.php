@@ -15,9 +15,11 @@ class FileManager
      */
     public function handle(Request $request, Closure $next): Response
     {
+        $configElfidnerUrl = ltrim(config('elfinder.route.prefix'), '/');
+
         if (
             auth()->check() && 
-            $request->is('elfinder') && 
+            $request->is($configElfidnerUrl) && 
             auth()->user()->cannot('admin_file_manager')
         ) {
             abort(403);
