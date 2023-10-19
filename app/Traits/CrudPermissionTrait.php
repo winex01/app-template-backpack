@@ -57,7 +57,7 @@ trait CrudPermissionTrait
 
 NOTE:: admin permissions
 admin_web_tinker    ---> check AuthServiceProvider
-TODO:: make sure in menucrud elfinder url is not editable   ---> check middleware, 
+TODO:: make sure in menucrud elfinder url is not editable, admin_file_manager   ---> check middleware, 
 TODO:: debugbbar
 
 */
