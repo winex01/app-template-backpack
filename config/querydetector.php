@@ -1,5 +1,8 @@
 <?php
 
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+
 return [
     /*
      * Enable or disable the query detection.
@@ -25,6 +28,12 @@ return [
         //    Post::class,
         //    'posts',
         //]
+        
+        // users_list -> show/preview
+        Role::class => [
+            Permission::class,
+            'permissions',
+         ],
     ],
 
     /*
