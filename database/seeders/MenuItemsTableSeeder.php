@@ -28,11 +28,11 @@ class MenuItemsTableSeeder extends Seeder
                 'permission' => 'menu_items_list',
                 'open_new_tab' => 0,
                 'parent_id' => NULL,
-                'lft' => 22,
-                'rgt' => 23,
+                'lft' => 24,
+                'rgt' => 25,
                 'depth' => 1,
                 'created_at' => '2023-10-16 14:59:13',
-                'updated_at' => '2023-10-17 08:32:27',
+                'updated_at' => '2023-10-21 05:28:17',
             ),
             1 => 
             array (
@@ -47,7 +47,7 @@ class MenuItemsTableSeeder extends Seeder
                 'rgt' => 6,
                 'depth' => 2,
                 'created_at' => '2023-10-16 23:34:16',
-                'updated_at' => '2023-10-17 08:32:27',
+                'updated_at' => '2023-10-21 05:28:17',
             ),
             2 => 
             array (
@@ -59,10 +59,10 @@ class MenuItemsTableSeeder extends Seeder
                 'open_new_tab' => 0,
                 'parent_id' => NULL,
                 'lft' => 4,
-                'rgt' => 21,
+                'rgt' => 23,
                 'depth' => 1,
                 'created_at' => '2023-10-16 23:35:38',
-                'updated_at' => '2023-10-17 08:32:27',
+                'updated_at' => '2023-10-21 05:28:17',
             ),
             3 => 
             array (
@@ -73,11 +73,11 @@ class MenuItemsTableSeeder extends Seeder
                 'permission' => NULL,
                 'open_new_tab' => 0,
                 'parent_id' => 3,
-                'lft' => 7,
-                'rgt' => 14,
+                'lft' => 9,
+                'rgt' => 16,
                 'depth' => 2,
                 'created_at' => '2023-10-16 23:38:03',
-                'updated_at' => '2023-10-17 08:32:27',
+                'updated_at' => '2023-10-21 05:28:17',
             ),
             4 => 
             array (
@@ -88,11 +88,11 @@ class MenuItemsTableSeeder extends Seeder
                 'permission' => 'users_list',
                 'open_new_tab' => 0,
                 'parent_id' => 4,
-                'lft' => 8,
-                'rgt' => 9,
+                'lft' => 10,
+                'rgt' => 11,
                 'depth' => 3,
                 'created_at' => '2023-10-16 23:40:38',
-                'updated_at' => '2023-10-17 08:32:27',
+                'updated_at' => '2023-10-21 05:28:17',
             ),
             5 => 
             array (
@@ -103,11 +103,11 @@ class MenuItemsTableSeeder extends Seeder
                 'permission' => 'roles_list',
                 'open_new_tab' => 0,
                 'parent_id' => 4,
-                'lft' => 10,
-                'rgt' => 11,
+                'lft' => 12,
+                'rgt' => 13,
                 'depth' => 3,
                 'created_at' => '2023-10-17 00:01:32',
-                'updated_at' => '2023-10-17 08:32:27',
+                'updated_at' => '2023-10-21 05:28:17',
             ),
             6 => 
             array (
@@ -118,11 +118,11 @@ class MenuItemsTableSeeder extends Seeder
                 'permission' => 'permissions_list',
                 'open_new_tab' => 0,
                 'parent_id' => 4,
-                'lft' => 12,
-                'rgt' => 13,
+                'lft' => 14,
+                'rgt' => 15,
                 'depth' => 3,
                 'created_at' => '2023-10-17 00:02:24',
-                'updated_at' => '2023-10-17 08:32:27',
+                'updated_at' => '2023-10-21 05:28:17',
             ),
             7 => 
             array (
@@ -133,11 +133,11 @@ class MenuItemsTableSeeder extends Seeder
                 'permission' => 'admin_file_manager',
                 'open_new_tab' => 0,
                 'parent_id' => 3,
-                'lft' => 15,
-                'rgt' => 16,
+                'lft' => 17,
+                'rgt' => 18,
                 'depth' => 2,
                 'created_at' => '2023-10-17 00:09:28',
-                'updated_at' => '2023-10-17 08:49:50',
+                'updated_at' => '2023-10-21 06:48:51',
             ),
             8 => 
             array (
@@ -148,11 +148,11 @@ class MenuItemsTableSeeder extends Seeder
                 'permission' => 'admin_web_tinker',
                 'open_new_tab' => 1,
                 'parent_id' => 3,
-                'lft' => 19,
-                'rgt' => 20,
+                'lft' => 21,
+                'rgt' => 22,
                 'depth' => 2,
                 'created_at' => '2023-10-17 00:10:16',
-                'updated_at' => '2023-10-17 08:36:49',
+                'updated_at' => '2023-10-21 05:28:17',
             ),
             9 => 
             array (
@@ -163,11 +163,11 @@ class MenuItemsTableSeeder extends Seeder
                 'permission' => NULL,
                 'open_new_tab' => 0,
                 'parent_id' => 3,
-                'lft' => 17,
-                'rgt' => 18,
+                'lft' => 19,
+                'rgt' => 20,
                 'depth' => 2,
                 'created_at' => '2023-10-17 00:11:40',
-                'updated_at' => '2023-10-17 08:32:27',
+                'updated_at' => '2023-10-21 05:28:17',
             ),
             10 => 
             array (
@@ -182,7 +182,22 @@ class MenuItemsTableSeeder extends Seeder
                 'rgt' => 3,
                 'depth' => 1,
                 'created_at' => '2023-10-17 01:28:59',
-                'updated_at' => '2023-10-17 08:49:24',
+                'updated_at' => '2023-10-21 05:28:17',
+            ),
+            11 => 
+            array (
+                'id' => 12,
+                'label' => 'Activity Log',
+                'url' => 'activity-log',
+                'icon' => 'la la-stream',
+                'permission' => 'admin_activity_log',
+                'open_new_tab' => 0,
+                'parent_id' => 3,
+                'lft' => 7,
+                'rgt' => 8,
+                'depth' => 2,
+                'created_at' => '2023-10-21 05:27:37',
+                'updated_at' => '2023-10-21 07:07:42',
             ),
         ));
         
