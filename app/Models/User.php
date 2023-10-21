@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Laravel\Sanctum\HasApiTokens;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
@@ -15,6 +15,8 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
     use CrudTrait; // backpack permission manager
     use HasRoles; // backpack permission manager
+
+    // use \App\Traits\LogsActivity;
 
     /**
      * The attributes that are mass assignable.

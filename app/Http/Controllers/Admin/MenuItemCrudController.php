@@ -86,17 +86,21 @@ class MenuItemCrudController extends CrudController
     // extend update operation
     public function update()
     {
-        $configElfidnerUrl = ltrim(config('elfinder.route.prefix'), '/');
+        // get entry ID from Request (makes sure its the last ID for nested resources)
+        $id = $this->crud->getCurrentEntryId();
 
-        // the config elfinder should match the route.prefix and URL field to avoid security breach, please check FileManager middleware
-        if ($configElfidnerUrl != request()->url) { 
-            // Prevent the update if the ID is 8
-            // You can return a response or perform any other action as needed
-            // show a success message
-            \Alert::error('The elfinder config route prefix should match the URL field.')->flash();
-        
-            return redirect()->back();
+        if ($id != null && $id == 8) { //hard code id 8 = elfinder in menu
+
+            $configElfidnerUrl = ltrim(config('elfinder.route.prefix'), '/');
+    
+            // the config elfinder should match the route.prefix and URL field to avoid security breach, please check FileManager middleware
+            if ($configElfidnerUrl != request()->url) { 
+                \Alert::error('The elfinder config route prefix should match the URL field.')->flash();
+            
+                return redirect()->back();
+            }
         }
+
 
         // Continue with the update logic for other cases
         return $this->traitUpdate();
