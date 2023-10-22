@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Traits\CrudPermissionTrait;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
+use Backpack\PermissionManager\app\Models\Permission;
 
 /**
  * Class MenuItemCrudController
@@ -62,6 +63,12 @@ class MenuItemCrudController extends CrudController
         CRUD::setFromDb(); // set fields from db columns.
 
         $this->crud->removeFields($this->reorderColumns());
+
+        CRUD::modifyField('permission',[   // select_from_array
+            'type'        => 'select_from_array',
+            'options'     => Permission::select('name')->pluck('name', 'name'),
+            'allows_null' => true,
+        ]);
     }
 
     /**
