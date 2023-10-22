@@ -1,32 +1,32 @@
 {{-- checklist --}}
 @php
-  $key_attribute = (new $field['model'])->getKeyName();
-  $field['attribute'] = $field['attribute'] ?? (new $field['model'])->identifiableAttribute();
-  $field['number_of_columns'] = $field['number_of_columns'] ?? 3;
+    $key_attribute = (new $field['model'])->getKeyName();
+    $field['attribute'] = $field['attribute'] ?? (new $field['model'])->identifiableAttribute();
+    $field['number_of_columns'] = $field['number_of_columns'] ?? 3;
 
-  // calculate the checklist options
-  if (!isset($field['options'])) {
-      $field['options'] = $field['model']::all()->pluck($field['attribute'], $key_attribute)->toArray();
-  } else {
-      $field['options'] = call_user_func($field['options'], $field['model']::query());
-  }
+    // calculate the checklist options
+    if (!isset($field['options'])) {
+        $field['options'] = $field['model']::all()->pluck($field['attribute'], $key_attribute)->toArray();
+    } else {
+        $field['options'] = call_user_func($field['options'], $field['model']::query());
+    }
 
-  // calculate the value of the hidden input
-  $field['value'] = old_empty_or_null($field['name'], []) ??  $field['value'] ?? $field['default'] ?? [];
-  if(!empty($field['value'])) {
-      if (is_a($field['value'], \Illuminate\Support\Collection::class)) {
-          $field['value'] = ($field['value'])->pluck($key_attribute)->toArray();
-      } elseif (is_string($field['value'])){
-        $field['value'] = json_decode($field['value']);
-      }
-  }
+    // calculate the value of the hidden input
+    $field['value'] = old_empty_or_null($field['name'], []) ??  $field['value'] ?? $field['default'] ?? [];
+    if(!empty($field['value'])) {
+        if (is_a($field['value'], \Illuminate\Support\Collection::class)) {
+            $field['value'] = ($field['value'])->pluck($key_attribute)->toArray();
+        } elseif (is_string($field['value'])){
+            $field['value'] = json_decode($field['value']);
+        }
+    }
 
-  // define the init-function on the wrapper
-  $field['wrapper']['data-init-function'] =  $field['wrapper']['data-init-function'] ?? 'bpFieldInitChecklist';
+    // define the init-function on the wrapper
+    $field['wrapper']['data-init-function'] =  $field['wrapper']['data-init-function'] ?? 'bpFieldInitChecklist';
 
-  $roles = config('backpack.permissionmanager.models.role')::
-            orderBy('name', 'asc')
-            ->pluck('name')->toArray();
+    $roles = config('backpack.permissionmanager.models.role')::
+                orderBy('name', 'asc')
+                ->pluck('name')->toArray();
 @endphp
 
 @include('crud::fields.inc.wrapper_start')
@@ -39,11 +39,11 @@
         @php
             $permissions = collect($field['options'])->filter(function ($item) use ($role) {
                 // return false !== stristr($item, $role);
-                return \Str::startsWith($item, $role);
+                return str_starts_with(strtolower($item), strtolower($role));
             })->toArray();
 
             if (empty($permissions)) {
-            continue;
+                continue;
             }
         @endphp
 
