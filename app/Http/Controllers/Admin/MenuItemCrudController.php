@@ -96,9 +96,15 @@ class MenuItemCrudController extends CrudController
             // the config elfinder should match the route.prefix and URL field to avoid security breach, please check FileManager middleware
             if ($configElfidnerUrl != request()->url) { 
                 \Alert::error('The elfinder config route prefix should match the URL field.')->flash();
-            
                 return redirect()->back();
             }
+        }elseif ($id != null && $id == 12) { # NOTE:: $id 12 is for activity log, dont let Users update the URL
+            if (request()->url != 'activity-log') {
+                \Alert::error('You\'re not allowed to modify the activity logs URL.')->flash();
+                return redirect()->back();
+            }
+        }else {
+            #
         }
 
 
