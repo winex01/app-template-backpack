@@ -227,6 +227,14 @@ class PermissionsTableSeeder extends Seeder
                 'created_at' => '2023-10-21 05:27:29',
                 'updated_at' => '2023-10-21 05:27:29',
             ),
+            26 => 
+            array (
+                'id' => 28,
+                'name' => 'admin_telescope',
+                'guard_name' => 'web',
+                'created_at' => '2023-10-23 10:21:07',
+                'updated_at' => '2023-10-23 10:21:07',
+            ),
         ));
         
         
