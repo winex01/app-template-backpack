@@ -110,10 +110,16 @@ class MenuCrudController extends CrudController
                 \Alert::error('You\'re not allowed to modify the activity logs URL.')->flash();
                 return redirect()->back();
             }
-        }else {
+        }elseif ($id != null && $id == 13) { # NOTE:: $id 13 is for telescope, dont let Users update the URL
+            // the config telescope path should match
+            if (config('telescope.path') != request()->url) { 
+                \Alert::error('The telescope config path should match the URL field.')->flash();
+                return redirect()->back();
+            }
+        }
+        else {
             #
         }
-
 
         // Continue with the update logic for other cases
         return $this->traitUpdate();
