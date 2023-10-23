@@ -22,7 +22,7 @@ class MenusTableSeeder extends Seeder
             0 => 
             array (
                 'id' => 1,
-                'label' => 'Menu',
+                'label' => 'Menus',
                 'url' => 'menu',
                 'icon' => 'la la-list',
                 'permission' => 'menus_list',
@@ -32,7 +32,7 @@ class MenusTableSeeder extends Seeder
                 'rgt' => 25,
                 'depth' => 1,
                 'created_at' => '2023-10-16 14:59:13',
-                'updated_at' => '2023-10-21 05:28:17',
+                'updated_at' => '2023-10-23 07:09:08',
             ),
             1 => 
             array (
