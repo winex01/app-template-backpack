@@ -38,50 +38,50 @@ class PermissionsTableSeeder extends Seeder
             2 => 
             array (
                 'id' => 3,
-                'name' => 'menu_items_list',
+                'name' => 'menus_list',
                 'guard_name' => 'web',
                 'created_at' => '2023-10-16 14:14:17',
-                'updated_at' => '2023-10-16 14:14:17',
+                'updated_at' => '2023-10-23 06:42:48',
             ),
             3 => 
             array (
                 'id' => 5,
-                'name' => 'menu_items_create',
+                'name' => 'menus_create',
                 'guard_name' => 'web',
                 'created_at' => '2023-10-16 14:14:36',
-                'updated_at' => '2023-10-16 14:14:36',
+                'updated_at' => '2023-10-23 06:42:41',
             ),
             4 => 
             array (
                 'id' => 6,
-                'name' => 'menu_items_update',
+                'name' => 'menus_update',
                 'guard_name' => 'web',
                 'created_at' => '2023-10-16 14:14:43',
-                'updated_at' => '2023-10-16 14:14:43',
+                'updated_at' => '2023-10-23 06:42:35',
             ),
             5 => 
             array (
                 'id' => 7,
-                'name' => 'menu_items_delete',
+                'name' => 'menus_delete',
                 'guard_name' => 'web',
                 'created_at' => '2023-10-16 14:15:07',
-                'updated_at' => '2023-10-16 14:15:07',
+                'updated_at' => '2023-10-23 06:42:26',
             ),
             6 => 
             array (
                 'id' => 8,
-                'name' => 'menu_items_reorder',
+                'name' => 'menus_reorder',
                 'guard_name' => 'web',
                 'created_at' => '2023-10-16 14:16:06',
-                'updated_at' => '2023-10-16 14:16:06',
+                'updated_at' => '2023-10-23 06:42:20',
             ),
             7 => 
             array (
                 'id' => 9,
-                'name' => 'menu_items_revise',
+                'name' => 'menus_revise',
                 'guard_name' => 'web',
                 'created_at' => '2023-10-16 23:31:14',
-                'updated_at' => '2023-10-16 23:31:14',
+                'updated_at' => '2023-10-23 06:42:04',
             ),
             8 => 
             array (

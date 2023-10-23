@@ -6,7 +6,7 @@ use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class MenuItem extends Model
+class Menu extends Model
 {
     use CrudTrait;
     use HasFactory;
@@ -17,7 +17,7 @@ class MenuItem extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'menu_items';
+    protected $table = 'menus';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];

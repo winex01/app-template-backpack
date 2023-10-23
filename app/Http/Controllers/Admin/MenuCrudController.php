@@ -8,11 +8,11 @@ use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 use Backpack\PermissionManager\app\Models\Permission;
 
 /**
- * Class MenuItemCrudController
+ * Class MenuCrudController
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class MenuItemCrudController extends CrudController
+class MenuCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -30,12 +30,12 @@ class MenuItemCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\MenuItem::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/menu-item');
-        CRUD::setEntityNameStrings('menu item', 'menu items');
+        CRUD::setModel(\App\Models\Menu::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/menu');
+        CRUD::setEntityNameStrings('menu', 'menus');
 
         // parameters add 'reorder' permission to the existing/default crud operation permission
-        $this->setAccessUsingPermissions('reorder'); 
+        // $this->setAccessUsingPermissions('reorder'); 
     }
 
     /**
