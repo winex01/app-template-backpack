@@ -1,15 +1,15 @@
 @php
 
-use App\Models\MenuItem;
+use App\Models\Menu;
 
-$menus = MenuItem::whereNull('parent_id')->orderBy('lft')->get();
+$menus = Menu::whereNull('parent_id')->orderBy('lft')->get();
 
 @endphp
 
 
 @foreach ($menus as $menu)
     @php
-        $subMenus = MenuItem::where('parent_id', $menu->id)->orderBy('lft')->get();
+        $subMenus = Menu::where('parent_id', $menu->id)->orderBy('lft')->get();
         $subMenusPermissions = $subMenus->whereNotNull('icon')->whereNotNull('url');
         $subMenusPermissions = $subMenusPermissions->pluck('permission');
     @endphp
@@ -33,7 +33,7 @@ $menus = MenuItem::whereNull('parent_id')->orderBy('lft')->get();
         @php
             $subSubMenusPermissions = [];
             foreach ($subMenus as $subMenu) {
-                $subSubMenus = MenuItem::where('parent_id', $subMenu->id)->orderBy('lft')->get();
+                $subSubMenus = Menu::where('parent_id', $subMenu->id)->orderBy('lft')->get();
                 $subSubMenusPermissions = $subSubMenus->whereNotNull('icon')->whereNotNull('url');
                 $subSubMenusPermissions = $subSubMenusPermissions->pluck('permission');
 
@@ -54,7 +54,7 @@ $menus = MenuItem::whereNull('parent_id')->orderBy('lft')->get();
                         {{-- check if there is a next menu-item, if yes then show this header, otherwise dont --}}
                         
                         @php
-                            $headerSubMenus = MenuItem::where('parent_id', $menu->id)
+                            $headerSubMenus = Menu::where('parent_id', $menu->id)
                                                 ->where('lft', '>', $subMenu->lft)
                                                 ->orderBy('lft')
                                                 ->get();
@@ -99,7 +99,7 @@ $menus = MenuItem::whereNull('parent_id')->orderBy('lft')->get();
                     @else
 
                         @php
-                            $subSubMenus = MenuItem::where('parent_id', $subMenu->id)->orderBy('lft')->get();
+                            $subSubMenus = Menu::where('parent_id', $subMenu->id)->orderBy('lft')->get();
                             $subSubMenusPermissions = $subSubMenus->whereNotNull('icon')->whereNotNull('url');
                             $subSubMenusPermissions = $subSubMenusPermissions->pluck('permission');
                         @endphp

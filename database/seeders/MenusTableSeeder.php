@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class MenuItemsTableSeeder extends Seeder
+class MenusTableSeeder extends Seeder
 {
 
     /**
@@ -16,16 +16,16 @@ class MenuItemsTableSeeder extends Seeder
     {
         
 
-        \DB::table('menu_items')->delete();
+        \DB::table('menus')->delete();
         
-        \DB::table('menu_items')->insert(array (
+        \DB::table('menus')->insert(array (
             0 => 
             array (
                 'id' => 1,
-                'label' => 'Menu Items',
-                'url' => 'menu-item',
+                'label' => 'Menu',
+                'url' => 'menu',
                 'icon' => 'la la-list',
-                'permission' => 'menu_items_list',
+                'permission' => 'menus_list',
                 'open_new_tab' => 0,
                 'parent_id' => NULL,
                 'lft' => 24,
@@ -122,7 +122,7 @@ class MenuItemsTableSeeder extends Seeder
                 'rgt' => 15,
                 'depth' => 3,
                 'created_at' => '2023-10-17 00:02:24',
-                'updated_at' => '2023-10-21 05:28:17',
+                'updated_at' => '2023-10-22 03:18:06',
             ),
             7 => 
             array (
@@ -174,7 +174,7 @@ class MenuItemsTableSeeder extends Seeder
                 'id' => 11,
                 'label' => 'Dashboard',
                 'url' => 'dashboard',
-                'icon' => 'la la-home',
+                'icon' => 'la la-dashboard',
                 'permission' => NULL,
                 'open_new_tab' => 0,
                 'parent_id' => NULL,
@@ -182,7 +182,7 @@ class MenuItemsTableSeeder extends Seeder
                 'rgt' => 3,
                 'depth' => 1,
                 'created_at' => '2023-10-17 01:28:59',
-                'updated_at' => '2023-10-21 05:28:17',
+                'updated_at' => '2023-10-22 03:01:44',
             ),
             11 => 
             array (
@@ -197,7 +197,7 @@ class MenuItemsTableSeeder extends Seeder
                 'rgt' => 8,
                 'depth' => 2,
                 'created_at' => '2023-10-21 05:27:37',
-                'updated_at' => '2023-10-21 07:07:42',
+                'updated_at' => '2023-10-22 02:10:03',
             ),
         ));
         
