@@ -2,22 +2,18 @@
 
 namespace App\Models;
 
-use App\Traits\LogsActivity;
+use App\Traits\GlobalModeltraits;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
-use Backpack\CRUD\app\Models\Traits\CrudTrait;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
-    use CrudTrait; 
+    use HasApiTokens, Notifiable;
     use HasRoles; // backpack permission manager
-
-    use LogsActivity;
-
+    
+    use GlobalModeltraits;
     /**
      * The attributes that are mass assignable.
      *
