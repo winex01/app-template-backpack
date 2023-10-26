@@ -19,7 +19,7 @@ class PermissionCrudController extends CrudController
 
     public function setup()
     {
-        $this->role_model = $role_model = config('backpack.permissionmanager.models.role');
+        $this->role_model = $role_model = config('backpack.permissionmanager.models.role'); // TODO:: change config and create model
         $this->permission_model = $permission_model = config('backpack.permissionmanager.models.permission');
 
         $this->crud->setModel($permission_model);

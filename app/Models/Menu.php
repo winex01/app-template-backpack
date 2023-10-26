@@ -2,12 +2,12 @@
 
 namespace App\Models;
 
-use App\Traits\GlobalModeltraits;
+use App\Traits\GlobalModelTraits;
 use Illuminate\Database\Eloquent\Model;
 
 class Menu extends Model
 {
-    use GlobalModeltraits;
+    use GlobalModelTraits;
     /*
     |--------------------------------------------------------------------------
     | GLOBAL VARIABLES

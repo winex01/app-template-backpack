@@ -6,7 +6,7 @@ use App\Traits\LogsActivity;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-trait GlobalModeltraits
+trait GlobalModelTraits
 {
     use CrudTrait; 
     use HasFactory;
