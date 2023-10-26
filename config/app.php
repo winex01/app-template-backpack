@@ -171,7 +171,6 @@ return [
         App\Providers\TelescopeServiceProvider::class,
 
         //
-        App\Providers\ExtendEloquentModelServiceProvider::class,
     ])->toArray(),
 
     /*

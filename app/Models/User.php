@@ -16,7 +16,7 @@ class User extends Authenticatable
     use CrudTrait; // backpack permission manager
     use HasRoles; // backpack permission manager
 
-    // use \App\Traits\LogsActivity;
+    use \App\Traits\LogsActivity;
 
     /**
      * The attributes that are mass assignable.
