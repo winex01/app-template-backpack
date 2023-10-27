@@ -2,15 +2,12 @@
 
 namespace App\Models;
 
-use Backpack\CRUD\app\Models\Traits\CrudTrait;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Traits\GlobalModelTraits;
 use Illuminate\Database\Eloquent\Model;
 
 class Menu extends Model
 {
-    use CrudTrait;
-    use HasFactory;
-
+    use GlobalModelTraits;
     /*
     |--------------------------------------------------------------------------
     | GLOBAL VARIABLES
