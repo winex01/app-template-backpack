@@ -27,6 +27,7 @@
         "backpack/generators": "^4.0",
         "beyondcode/laravel-query-detector": "^1.7",
         "fakerphp/faker": "^1.9.1",
+        "jeroen-g/laravel-packager": "^2.9",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.18",
         "mockery/mockery": "^1.4.4",
@@ -79,5 +80,14 @@
         }
     },
     "minimum-stability": "stable",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": {
+        "winnie/bulk-delete-operation": {
+            "type": "path",
+            "url": "D:\\laragon\\www\\app-template\\packages/Winnie/bulk-delete-operation",
+            "options": {
+                "symlink": true
+            }
+        }
+    }
 }
