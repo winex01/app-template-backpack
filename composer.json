@@ -21,12 +21,14 @@
         "laravel/tinker": "^2.8",
         "orangehill/iseed": "^3.0",
         "spatie/laravel-activitylog": "^4.7",
-        "spatie/laravel-web-tinker": "^1.8"
+        "spatie/laravel-web-tinker": "^1.8",
+        "winnie/bulk-delete-operation": "^1.0"
     },
     "require-dev": {
         "backpack/generators": "^4.0",
         "beyondcode/laravel-query-detector": "^1.7",
         "fakerphp/faker": "^1.9.1",
+        "jeroen-g/laravel-packager": "^2.9",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.18",
         "mockery/mockery": "^1.4.4",
