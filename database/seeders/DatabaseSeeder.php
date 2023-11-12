@@ -25,8 +25,7 @@ class DatabaseSeeder extends Seeder
         $this->call(UsersTableSeeder::class);
         $this->call(MenusTableSeeder::class);
 
-        $user = User::find(1);
 
-        $user->assignROle('menus');
+        $this->call(AssignRolesAndPermissionsToAdminUser::class);
     }
 }
