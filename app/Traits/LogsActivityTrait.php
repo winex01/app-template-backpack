@@ -3,11 +3,11 @@
 namespace App\Traits;
 
 use Spatie\Activitylog\LogOptions;
-use Spatie\Activitylog\Traits\LogsActivity as OriginalLogsActivity;
+use Spatie\Activitylog\Traits\LogsActivity;
 
-trait LogsActivity
+trait LogsActivityTrait
 {
-    use OriginalLogsActivity;
+    use LogsActivity;
 
     /**
      * Spatie Log Options

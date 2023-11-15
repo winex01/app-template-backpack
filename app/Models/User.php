@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Traits\GlobalModelTraits;
+use App\Traits\GlobalModelTrait;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
@@ -13,7 +13,7 @@ class User extends Authenticatable
     use HasApiTokens, Notifiable;
     use HasRoles; // backpack permission manager
     
-    use GlobalModelTraits;
+    use GlobalModelTrait;
     /**
      * The attributes that are mass assignable.
      *

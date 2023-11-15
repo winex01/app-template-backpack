@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
-use App\Traits\GlobalModelTraits;
+use App\Traits\GlobalModelTrait;
 use Backpack\PermissionManager\app\Models\Role as ModelsRole;
 
 class Role extends ModelsRole
 {
-    use GlobalModelTraits;
+    use GlobalModelTrait;
 }
