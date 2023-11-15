@@ -26,6 +26,7 @@ class PermissionsTableSeeder extends Seeder
                 'guard_name' => 'web',
                 'created_at' => '2023-10-15 07:06:44',
                 'updated_at' => '2023-10-15 07:06:44',
+                'deleted_at' => NULL,
             ),
             1 => 
             array (
@@ -34,6 +35,7 @@ class PermissionsTableSeeder extends Seeder
                 'guard_name' => 'web',
                 'created_at' => '2023-10-15 07:36:05',
                 'updated_at' => '2023-10-15 07:36:05',
+                'deleted_at' => NULL,
             ),
             2 => 
             array (
@@ -42,6 +44,7 @@ class PermissionsTableSeeder extends Seeder
                 'guard_name' => 'web',
                 'created_at' => '2023-10-16 14:14:17',
                 'updated_at' => '2023-10-23 06:42:48',
+                'deleted_at' => NULL,
             ),
             3 => 
             array (
@@ -50,6 +53,7 @@ class PermissionsTableSeeder extends Seeder
                 'guard_name' => 'web',
                 'created_at' => '2023-10-16 14:14:36',
                 'updated_at' => '2023-10-23 06:42:41',
+                'deleted_at' => NULL,
             ),
             4 => 
             array (
@@ -58,6 +62,7 @@ class PermissionsTableSeeder extends Seeder
                 'guard_name' => 'web',
                 'created_at' => '2023-10-16 14:14:43',
                 'updated_at' => '2023-10-23 06:42:35',
+                'deleted_at' => NULL,
             ),
             5 => 
             array (
@@ -66,6 +71,7 @@ class PermissionsTableSeeder extends Seeder
                 'guard_name' => 'web',
                 'created_at' => '2023-10-16 14:15:07',
                 'updated_at' => '2023-10-23 06:42:26',
+                'deleted_at' => NULL,
             ),
             6 => 
             array (
@@ -74,6 +80,7 @@ class PermissionsTableSeeder extends Seeder
                 'guard_name' => 'web',
                 'created_at' => '2023-10-16 14:16:06',
                 'updated_at' => '2023-10-23 06:42:20',
+                'deleted_at' => NULL,
             ),
             7 => 
             array (
@@ -82,6 +89,7 @@ class PermissionsTableSeeder extends Seeder
                 'guard_name' => 'web',
                 'created_at' => '2023-10-16 23:31:14',
                 'updated_at' => '2023-10-23 06:42:04',
+                'deleted_at' => NULL,
             ),
             8 => 
             array (
@@ -90,6 +98,7 @@ class PermissionsTableSeeder extends Seeder
                 'guard_name' => 'web',
                 'created_at' => '2023-10-16 23:41:00',
                 'updated_at' => '2023-10-16 23:41:00',
+                'deleted_at' => NULL,
             ),
             9 => 
             array (
@@ -98,6 +107,7 @@ class PermissionsTableSeeder extends Seeder
                 'guard_name' => 'web',
                 'created_at' => '2023-10-16 23:41:24',
                 'updated_at' => '2023-10-16 23:41:24',
+                'deleted_at' => NULL,
             ),
             10 => 
             array (
@@ -106,6 +116,7 @@ class PermissionsTableSeeder extends Seeder
                 'guard_name' => 'web',
                 'created_at' => '2023-10-16 23:41:34',
                 'updated_at' => '2023-10-16 23:41:34',
+                'deleted_at' => NULL,
             ),
             11 => 
             array (
@@ -114,6 +125,7 @@ class PermissionsTableSeeder extends Seeder
                 'guard_name' => 'web',
                 'created_at' => '2023-10-16 23:41:44',
                 'updated_at' => '2023-10-16 23:41:44',
+                'deleted_at' => NULL,
             ),
             12 => 
             array (
@@ -122,6 +134,7 @@ class PermissionsTableSeeder extends Seeder
                 'guard_name' => 'web',
                 'created_at' => '2023-10-16 23:41:51',
                 'updated_at' => '2023-10-16 23:41:51',
+                'deleted_at' => NULL,
             ),
             13 => 
             array (
@@ -130,6 +143,7 @@ class PermissionsTableSeeder extends Seeder
                 'guard_name' => 'web',
                 'created_at' => '2023-10-16 23:41:57',
                 'updated_at' => '2023-10-16 23:41:57',
+                'deleted_at' => NULL,
             ),
             14 => 
             array (
@@ -138,6 +152,7 @@ class PermissionsTableSeeder extends Seeder
                 'guard_name' => 'web',
                 'created_at' => '2023-10-16 23:55:25',
                 'updated_at' => '2023-10-16 23:55:25',
+                'deleted_at' => NULL,
             ),
             15 => 
             array (
@@ -146,6 +161,7 @@ class PermissionsTableSeeder extends Seeder
                 'guard_name' => 'web',
                 'created_at' => '2023-10-16 23:55:44',
                 'updated_at' => '2023-10-16 23:55:44',
+                'deleted_at' => NULL,
             ),
             16 => 
             array (
@@ -154,6 +170,7 @@ class PermissionsTableSeeder extends Seeder
                 'guard_name' => 'web',
                 'created_at' => '2023-10-16 23:55:53',
                 'updated_at' => '2023-10-16 23:55:53',
+                'deleted_at' => NULL,
             ),
             17 => 
             array (
@@ -162,6 +179,7 @@ class PermissionsTableSeeder extends Seeder
                 'guard_name' => 'web',
                 'created_at' => '2023-10-16 23:56:07',
                 'updated_at' => '2023-10-16 23:56:07',
+                'deleted_at' => NULL,
             ),
             18 => 
             array (
@@ -170,6 +188,7 @@ class PermissionsTableSeeder extends Seeder
                 'guard_name' => 'web',
                 'created_at' => '2023-10-16 23:56:20',
                 'updated_at' => '2023-10-16 23:56:20',
+                'deleted_at' => NULL,
             ),
             19 => 
             array (
@@ -178,6 +197,7 @@ class PermissionsTableSeeder extends Seeder
                 'guard_name' => 'web',
                 'created_at' => '2023-10-16 23:56:58',
                 'updated_at' => '2023-10-16 23:56:58',
+                'deleted_at' => NULL,
             ),
             20 => 
             array (
@@ -186,6 +206,7 @@ class PermissionsTableSeeder extends Seeder
                 'guard_name' => 'web',
                 'created_at' => '2023-10-16 23:57:04',
                 'updated_at' => '2023-10-16 23:57:04',
+                'deleted_at' => NULL,
             ),
             21 => 
             array (
@@ -194,6 +215,7 @@ class PermissionsTableSeeder extends Seeder
                 'guard_name' => 'web',
                 'created_at' => '2023-10-16 23:57:09',
                 'updated_at' => '2023-10-16 23:57:09',
+                'deleted_at' => NULL,
             ),
             22 => 
             array (
@@ -202,6 +224,7 @@ class PermissionsTableSeeder extends Seeder
                 'guard_name' => 'web',
                 'created_at' => '2023-10-16 23:57:12',
                 'updated_at' => '2023-10-16 23:57:12',
+                'deleted_at' => NULL,
             ),
             23 => 
             array (
@@ -210,6 +233,7 @@ class PermissionsTableSeeder extends Seeder
                 'guard_name' => 'web',
                 'created_at' => '2023-10-16 23:57:18',
                 'updated_at' => '2023-10-16 23:57:18',
+                'deleted_at' => NULL,
             ),
             24 => 
             array (
@@ -218,6 +242,7 @@ class PermissionsTableSeeder extends Seeder
                 'guard_name' => 'web',
                 'created_at' => '2023-10-19 03:17:34',
                 'updated_at' => '2023-10-19 03:17:34',
+                'deleted_at' => NULL,
             ),
             25 => 
             array (
@@ -226,6 +251,7 @@ class PermissionsTableSeeder extends Seeder
                 'guard_name' => 'web',
                 'created_at' => '2023-10-21 05:27:29',
                 'updated_at' => '2023-10-21 05:27:29',
+                'deleted_at' => NULL,
             ),
             26 => 
             array (
@@ -234,6 +260,7 @@ class PermissionsTableSeeder extends Seeder
                 'guard_name' => 'web',
                 'created_at' => '2023-10-23 10:21:07',
                 'updated_at' => '2023-10-23 10:21:07',
+                'deleted_at' => NULL,
             ),
         ));
         
