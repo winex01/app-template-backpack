@@ -27,6 +27,17 @@
     $roles = config('backpack.permissionmanager.models.role')::
                 orderBy('name', 'asc')
                 ->pluck('name')->toArray();
+
+    $options = collect($field['options']);
+    $unGroupPermissions = $options->reject(function ($option) use ($roles) {
+        foreach ($roles as $prefix) {
+            if (strcasecmp(substr($option, 0, strlen($prefix)), $prefix) === 0) {
+                return true;
+            }
+        }
+        return false;
+    });
+
 @endphp
 
 @include('crud::fields.inc.wrapper_start')
@@ -34,6 +45,29 @@
     @include('crud::fields.inc.translatable_icon')
 
     <input type="hidden" value='@json($field['value'])' name="{{ $field['name'] }}">
+
+    @if(!$unGroupPermissions->isEmpty())
+
+        <hr>
+        <div class="row">
+            <div class="col-sm-12">
+                <label class="">{{ __('Misc.') }}</label>
+            </div>
+        </div>
+        
+        <div class="row">
+            @foreach ($unGroupPermissions as $key => $option)
+            <div class="col-sm-{{ intval(12/$field['number_of_columns']) }}">
+                <div class="checkbox">
+                    <label class="font-weight-normal">
+                        <input type="checkbox" value="{{ $key }}"> {{ ucwords(str_replace('_', ' ', $option)) }}
+                    </label>
+                </div>
+            </div>
+            @endforeach
+        </div>
+
+    @endunless
 
     @foreach ($roles as $role)
         @php
