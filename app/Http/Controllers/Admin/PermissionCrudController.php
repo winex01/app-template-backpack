@@ -82,6 +82,7 @@ class PermissionCrudController extends CrudController
             'name'  => 'name',
             'label' => trans('backpack::permissionmanager.name'),
             'type'  => 'text',
+            'hint'  => 'Ex: table_name_operation, permissions_list',
         ]);
 
         if (config('backpack.permissionmanager.multiple_guards')) {
