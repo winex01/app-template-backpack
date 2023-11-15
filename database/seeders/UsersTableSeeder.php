@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
 
 class UsersTableSeeder extends Seeder
 {
@@ -15,7 +14,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        $password = Hash::make('password');        
+        
 
         \DB::table('users')->delete();
         
@@ -26,21 +25,23 @@ class UsersTableSeeder extends Seeder
                 'name' => 'Admin',
                 'email' => 'admin@admin.com',
                 'email_verified_at' => NULL,
-                'password' => $password,
+                'password' => '$2y$10$GQcmLS27ZsSn77TL4r03TOuL9P6CLheM/cTOA3bBwFoCLFBiMhI8', // password = 123123
                 'remember_token' => 'W0GcsImhuddzreidh1MzgW9DDrwEK1Awo4b7hohBhQNQmhfBcIMcGKRgcoxt',
                 'created_at' => '2023-10-13 15:35:41',
                 'updated_at' => '2023-10-14 04:52:53',
+                'deleted_at' => NULL,
             ),
             1 => 
             array (
                 'id' => 2,
-                'name' => 'Test User1',
+                'name' => 'Test',
                 'email' => 'test@test.com',
                 'email_verified_at' => NULL,
-                'password' => $password,
+                'password' => '$2y$10$GQcmLS27ZsSn77TL4r03TOuL9P6CLheM/cTOA3bBwFoCLFBiMhI8.',
                 'remember_token' => NULL,
                 'created_at' => '2023-10-13 16:03:22',
-                'updated_at' => '2023-10-21 06:38:45',
+                'updated_at' => '2023-11-15 01:24:14',
+                'deleted_at' => NULL,
             ),
             2 => 
             array (
@@ -48,10 +49,11 @@ class UsersTableSeeder extends Seeder
                 'name' => 'John Doe',
                 'email' => 'johnDough@gmail.com',
                 'email_verified_at' => NULL,
-                'password' => $password,
+                'password' => '$2y$10$ycguMLexnyh4LHGnJ9MQXOE/gVXgSp5/1koTIbbNE9PefTWz6EzAK',
                 'remember_token' => NULL,
                 'created_at' => '2023-10-14 04:57:39',
                 'updated_at' => '2023-10-21 07:07:57',
+                'deleted_at' => NULL,
             ),
             3 => 
             array (
@@ -59,10 +61,11 @@ class UsersTableSeeder extends Seeder
                 'name' => 'Jane Doe',
                 'email' => 'janedoe@gmail.com',
                 'email_verified_at' => NULL,
-                'password' => $password,
+                'password' => '$2y$10$ybl1MJ3y8kaYMMRvEoSz4e2f.MFphzIMK3xDASHglv4fALhO9odqS',
                 'remember_token' => NULL,
                 'created_at' => '2023-10-21 06:37:29',
                 'updated_at' => '2023-10-21 06:39:09',
+                'deleted_at' => NULL,
             ),
         ));
         
