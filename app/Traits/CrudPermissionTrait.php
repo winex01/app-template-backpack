@@ -2,13 +2,16 @@
 
 namespace App\Traits;
 
-use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
+use Illuminate\Support\Str;
+use App\Traits\SetEntityNameStringsTrait;
 
 /**
  * CrudPermissionTrait: use Permissions to configure Backpack
  */
 trait CrudPermissionTrait
 {
+    use SetEntityNameStringsTrait;
+
     // the operations defined for CRUD controller
     public array $operations = ['list', 'show', 'create', 'update', 'delete', 'revise'];
 
@@ -20,6 +23,8 @@ trait CrudPermissionTrait
      */
     public function setAccessUsingPermissions($moreOperations = null)
     {
+        $this->setEntityNameString();
+
         if ($moreOperations != null) {
             // array_push($this->operations, $moreOperations);
             if (is_array($moreOperations)) {
@@ -33,7 +38,7 @@ trait CrudPermissionTrait
         $this->crud->denyAccess($this->operations);
 
         // get context
-        $table = CRUD::getModel()->getTable();
+        $table = $this->crud->getModel()->getTable();
         $user = request()->user();
 
         // double check if no authenticated user
@@ -50,6 +55,8 @@ trait CrudPermissionTrait
             }
         }
     }
+
+    
 
 }
 
