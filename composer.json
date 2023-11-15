@@ -22,8 +22,7 @@
         "laravel/tinker": "^2.8",
         "orangehill/iseed": "^3.0",
         "spatie/laravel-activitylog": "^4.7",
-        "spatie/laravel-web-tinker": "^1.8",
-        "winnie/bulk-delete-operation": "^1.0"
+        "spatie/laravel-web-tinker": "^1.8"
     },
     "require-dev": {
         "backpack/generators": "^4.0",

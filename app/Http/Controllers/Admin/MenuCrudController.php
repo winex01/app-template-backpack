@@ -47,9 +47,9 @@ class MenuCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::setFromDb(); // set columns from db columns.
+        $this->crud->setOperationSetting('lineButtonsAsDropdown', true);
 
-        $this->crud->removeColumns($this->reorderColumns());
+        $this->setupShowOperation();
     }
 
     /**
@@ -69,6 +69,11 @@ class MenuCrudController extends CrudController
             'type'        => 'select_from_array',
             'options'     => Permission::select('name')->pluck('name', 'name'),
             'allows_null' => true,
+        ]);
+
+        $iconLink = 'https://icons8.com/line-awesome';
+        $this->crud->modifyField('icon', [
+            'hint' => '<a href="'.$iconLink.'" target="_blank">'.$iconLink.'</a> '
         ]);
     }
 
@@ -126,6 +131,13 @@ class MenuCrudController extends CrudController
         return $this->traitUpdate();
     }
 
+    public function setupShowOperation()
+    {
+        CRUD::setFromDb(); // set columns from db columns.
+
+        $this->crud->removeColumns($this->reorderColumns());
+    }
+
     private function reorderColumns()
     {
         return [
@@ -135,4 +147,5 @@ class MenuCrudController extends CrudController
             'depth',
         ];
     }
+    
 }

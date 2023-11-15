@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "73ed95e183bc61df7ad954d78f5fd75f",
+    "content-hash": "3655b8972e4a4d8372548b996b0af06e",
     "packages": [
         {
             "name": "backpack/activity-log",
@@ -7721,66 +7721,6 @@
                 "source": "https://github.com/webmozarts/assert/tree/1.11.0"
             },
             "time": "2022-06-03T18:03:27+00:00"
-        },
-        {
-            "name": "winnie/bulk-delete-operation",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/winex01/bulk-delete-operation.git",
-                "reference": "b16242739b384712aa3e579671a354ad4e56deae"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/winex01/bulk-delete-operation/zipball/b16242739b384712aa3e579671a354ad4e56deae",
-                "reference": "b16242739b384712aa3e579671a354ad4e56deae",
-                "shasum": ""
-            },
-            "require": {
-                "backpack/crud": "^6.2"
-            },
-            "require-dev": {
-                "orchestra/testbench": "~5|~6",
-                "phpunit/phpunit": "~9.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Winnie\\BulkDeleteOperation\\AddonServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Winnie\\BulkDeleteOperation\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Winnie Damayo",
-                    "email": "winnie131212592@gmail.com",
-                    "homepage": "https://github.com/winex01"
-                }
-            ],
-            "description": "Laravel Backpack Bulk Delete Operation Free",
-            "homepage": "https://github.com/winnie/bulk-delete-operation",
-            "keywords": [
-                "Backpack Addon",
-                "Backpack for Laravel",
-                "BulkDeleteOperation",
-                "backpack",
-                "laravel"
-            ],
-            "support": {
-                "issues": "https://github.com/winex01/bulk-delete-operation/issues",
-                "source": "https://github.com/winex01/bulk-delete-operation/tree/1.0.0"
-            },
-            "time": "2023-10-31T04:47:19+00:00"
         }
     ],
     "packages-dev": [

@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class UsersTableSeeder extends Seeder
 {
@@ -25,7 +26,7 @@ class UsersTableSeeder extends Seeder
                 'name' => 'Admin',
                 'email' => 'admin@admin.com',
                 'email_verified_at' => NULL,
-                'password' => '$2y$10$rMIOGOMf6CAC/91ObusITuME43fAI6R1ZoJTw50iG49tkLF9UVaAy',
+                'password' => Hash::make('password'),
                 'remember_token' => 'W0GcsImhuddzreidh1MzgW9DDrwEK1Awo4b7hohBhQNQmhfBcIMcGKRgcoxt',
                 'created_at' => '2023-10-13 15:35:41',
                 'updated_at' => '2023-10-14 04:52:53',
