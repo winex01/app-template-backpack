@@ -70,6 +70,11 @@ class MenuCrudController extends CrudController
             'options'     => Permission::select('name')->pluck('name', 'name'),
             'allows_null' => true,
         ]);
+
+        $iconLink = 'https://icons8.com/line-awesome';
+        $this->crud->modifyField('icon', [
+            'hint' => '<a href="'.$iconLink.'" target="_blank">'.$iconLink.'</a> '
+        ]);
     }
 
     /**
