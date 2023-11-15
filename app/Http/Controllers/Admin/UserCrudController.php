@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Hash;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\PermissionManager\app\Http\Requests\UserStoreCrudRequest as StoreRequest;
 use Backpack\PermissionManager\app\Http\Requests\UserUpdateCrudRequest as UpdateRequest;
-use Winnie\BulkDeleteOperation\Http\Controllers\Admin\Operations\BulkDeleteOperation;
 
 /**
  * Class UserCrudController
@@ -23,7 +22,6 @@ class UserCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
     use \Backpack\ReviseOperation\ReviseOperation;
 
-    use BulkDeleteOperation;
     use CrudPermissionTrait;
 
     /**
