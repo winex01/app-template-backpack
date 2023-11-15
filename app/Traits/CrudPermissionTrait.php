@@ -60,7 +60,7 @@ admin_web_tinker   ---> check AuthServiceProvider
 admin_file_manager ---> check middleware,
 admin_debugbar     ---> check middleware
 admin_telescope    ---> check TeslescopeServiceProvider, 
-                        in local APP_ENV if enabled always shows the 
+                        if APP_ENV = local even if enabled always shows the 
                         telescope regardless of permissions, try changing 
                         the APP_ENV to production to test.
 
