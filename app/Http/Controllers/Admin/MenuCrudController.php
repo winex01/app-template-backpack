@@ -47,9 +47,9 @@ class MenuCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::setFromDb(); // set columns from db columns.
+        $this->crud->setOperationSetting('lineButtonsAsDropdown', true);
 
-        $this->crud->removeColumns($this->reorderColumns());
+        $this->setupShowOperation();
     }
 
     /**
@@ -131,6 +131,13 @@ class MenuCrudController extends CrudController
         return $this->traitUpdate();
     }
 
+    public function setupShowOperation()
+    {
+        CRUD::setFromDb(); // set columns from db columns.
+
+        $this->crud->removeColumns($this->reorderColumns());
+    }
+
     private function reorderColumns()
     {
         return [
@@ -140,4 +147,5 @@ class MenuCrudController extends CrudController
             'depth',
         ];
     }
+    
 }

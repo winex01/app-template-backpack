@@ -46,6 +46,8 @@ class UserCrudController extends CrudController
      */
     protected function setupListOperation()
     {
+        $this->crud->setOperationSetting('lineButtonsAsDropdown', true);
+        
         $this->crud->addColumns([
             [
                 'name'  => 'name',
