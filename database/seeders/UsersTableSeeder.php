@@ -15,7 +15,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        
+        $password = Hash::make('password');        
 
         \DB::table('users')->delete();
         
@@ -26,7 +26,7 @@ class UsersTableSeeder extends Seeder
                 'name' => 'Admin',
                 'email' => 'admin@admin.com',
                 'email_verified_at' => NULL,
-                'password' => Hash::make('password'),
+                'password' => $password,
                 'remember_token' => 'W0GcsImhuddzreidh1MzgW9DDrwEK1Awo4b7hohBhQNQmhfBcIMcGKRgcoxt',
                 'created_at' => '2023-10-13 15:35:41',
                 'updated_at' => '2023-10-14 04:52:53',
@@ -37,7 +37,7 @@ class UsersTableSeeder extends Seeder
                 'name' => 'Test User1',
                 'email' => 'test@test.com',
                 'email_verified_at' => NULL,
-                'password' => '$2y$10$GQcmLS27ZsSn77TL4r03TOuL9P6CLheM/cTOA3bBwFoCLFBiMhI8.',
+                'password' => $password,
                 'remember_token' => NULL,
                 'created_at' => '2023-10-13 16:03:22',
                 'updated_at' => '2023-10-21 06:38:45',
@@ -48,7 +48,7 @@ class UsersTableSeeder extends Seeder
                 'name' => 'John Doe',
                 'email' => 'johnDough@gmail.com',
                 'email_verified_at' => NULL,
-                'password' => '$2y$10$ycguMLexnyh4LHGnJ9MQXOE/gVXgSp5/1koTIbbNE9PefTWz6EzAK',
+                'password' => $password,
                 'remember_token' => NULL,
                 'created_at' => '2023-10-14 04:57:39',
                 'updated_at' => '2023-10-21 07:07:57',
@@ -59,7 +59,7 @@ class UsersTableSeeder extends Seeder
                 'name' => 'Jane Doe',
                 'email' => 'janedoe@gmail.com',
                 'email_verified_at' => NULL,
-                'password' => '$2y$10$ybl1MJ3y8kaYMMRvEoSz4e2f.MFphzIMK3xDASHglv4fALhO9odqS',
+                'password' => $password,
                 'remember_token' => NULL,
                 'created_at' => '2023-10-21 06:37:29',
                 'updated_at' => '2023-10-21 06:39:09',

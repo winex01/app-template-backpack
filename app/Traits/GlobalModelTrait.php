@@ -2,18 +2,18 @@
 
 namespace App\Traits;
 
-use App\Traits\LogsActivity;
+use App\Traits\LogsActivityTrait;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Venturecraft\Revisionable\RevisionableTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-trait GlobalModelTraits
+trait GlobalModelTrait
 {
     use CrudTrait; 
     use HasFactory;
-    use LogsActivity;
     use SoftDeletes;
+    use LogsActivityTrait;
     use RevisionableTrait;
 
 

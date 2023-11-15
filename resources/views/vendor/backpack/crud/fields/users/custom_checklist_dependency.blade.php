@@ -123,24 +123,11 @@
         <label>{!! $secondary_dependency['label'] !!}</label>
       </div>
 
-      @php
-        $roles = $roles->pluck('name')->toArray();
-      @endphp
-
       @foreach ($roles as $role)
-        @php
-          $count = $secondary_dependency['model']::where('name', 'LIKE', $role.'_%')->count('name');
-          if ($count == 0) {
-              continue;
-          }
-
-          $filter = \Str::snake($role);
-        @endphp
-        
         <hr>
         <div class="row">
             <div class="col-sm-12">
-                <label class="">{{  ucwords(str_replace('_', ' ', $role)) }}</label>
+                <label class="">{{  ucwords(str_replace('_', ' ', $role->name)) }}</label>
             </div>
         </div>
 
@@ -159,7 +146,7 @@
               @endif
             </div>
 
-            @foreach ($secondary_dependency['model']::where('name', 'like', "$filter%")->get() as $connected_entity_entry)
+            @foreach ($role->permissions as $connected_entity_entry)
                 <div class="col-sm-{{ isset($secondary_dependency['number_columns']) ? intval(12/$secondary_dependency['number_columns']) : '4'}}">
                     <div class="checkbox">
                         <label class="font-weight-normal">

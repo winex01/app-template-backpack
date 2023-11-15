@@ -262,6 +262,51 @@ class PermissionsTableSeeder extends Seeder
                 'updated_at' => '2023-10-23 10:21:07',
                 'deleted_at' => NULL,
             ),
+            27 => 
+            array (
+                'id' => 29,
+                'name' => 'employees_list',
+                'guard_name' => 'web',
+                'created_at' => '2023-11-15 12:03:57',
+                'updated_at' => '2023-11-15 12:03:57',
+                'deleted_at' => NULL,
+            ),
+            28 => 
+            array (
+                'id' => 30,
+                'name' => 'employees_create',
+                'guard_name' => 'web',
+                'created_at' => '2023-11-15 12:04:06',
+                'updated_at' => '2023-11-15 12:04:06',
+                'deleted_at' => NULL,
+            ),
+            29 => 
+            array (
+                'id' => 31,
+                'name' => 'employees_update',
+                'guard_name' => 'web',
+                'created_at' => '2023-11-15 12:04:15',
+                'updated_at' => '2023-11-15 12:04:15',
+                'deleted_at' => NULL,
+            ),
+            30 => 
+            array (
+                'id' => 32,
+                'name' => 'employees_delete',
+                'guard_name' => 'web',
+                'created_at' => '2023-11-15 12:04:22',
+                'updated_at' => '2023-11-15 12:04:22',
+                'deleted_at' => NULL,
+            ),
+            31 => 
+            array (
+                'id' => 33,
+                'name' => 'employees_revise',
+                'guard_name' => 'web',
+                'created_at' => '2023-11-15 12:04:52',
+                'updated_at' => '2023-11-15 12:04:52',
+                'deleted_at' => NULL,
+            ),
         ));
         
         

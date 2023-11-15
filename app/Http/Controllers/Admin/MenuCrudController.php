@@ -33,7 +33,8 @@ class MenuCrudController extends CrudController
     {
         CRUD::setModel(\App\Models\Menu::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/menu');
-        CRUD::setEntityNameStrings('menu', 'menus');
+
+        $this->setAccessUsingPermissions();
 
         // parameters add 'reorder' permission to the existing/default crud operation permission
         // $this->setAccessUsingPermissions('reorder'); 

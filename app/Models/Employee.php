@@ -5,16 +5,17 @@ namespace App\Models;
 use App\Traits\GlobalModelTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class Menu extends Model
+class Employee extends Model
 {
     use GlobalModelTrait;
+
     /*
     |--------------------------------------------------------------------------
     | GLOBAL VARIABLES
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'menus';
+    protected $table = 'employees';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
