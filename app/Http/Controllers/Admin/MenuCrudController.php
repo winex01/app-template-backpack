@@ -36,6 +36,7 @@ class MenuCrudController extends CrudController
 
         $this->setAccessUsingPermissions();
 
+        // TODO:: review/check reorder button permissions
         // parameters add 'reorder' permission to the existing/default crud operation permission
         // $this->setAccessUsingPermissions('reorder'); 
     }
