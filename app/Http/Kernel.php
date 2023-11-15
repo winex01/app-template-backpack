@@ -41,7 +41,6 @@ class Kernel extends HttpKernel
             // Backpack/Packages
             \App\Http\Middleware\FileManager::class,
             \App\Http\Middleware\Debugbar::class,
-            \App\Http\Middleware\ActivityLog::class,
         ],
 
         'api' => [

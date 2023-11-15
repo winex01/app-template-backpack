@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Traits\CrudPermissionTrait;
 use Backpack\ActivityLog\Models\ActivityLog;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
@@ -25,6 +26,7 @@ class ActivityLogCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
 
+    use CrudPermissionTrait;
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
      *
@@ -34,7 +36,10 @@ class ActivityLogCrudController extends CrudController
     {
         CRUD::setModel(ActivityLog::class);
         CRUD::setRoute(config('backpack.base.route_prefix').'/activity-log');
-        CRUD::setEntityNameStrings(__('backpack.activity-log::activity_log.activity_log'), __('backpack.activity-log::activity_log.activity_logs'));
+        
+        $this->setAccessUsingPermissions();
+
+        // $this->crud->allowAccess('list');
     }
 
     /**
