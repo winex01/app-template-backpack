@@ -25,10 +25,10 @@ class UsersTableSeeder extends Seeder
                 'name' => 'Admin',
                 'email' => 'admin@admin.com',
                 'email_verified_at' => NULL,
-                'password' => '$2y$10$GQcmLS27ZsSn77TL4r03TOuL9P6CLheM/cTOA3bBwFoCLFBiMhI8', // password = 123123
-                'remember_token' => 'W0GcsImhuddzreidh1MzgW9DDrwEK1Awo4b7hohBhQNQmhfBcIMcGKRgcoxt',
+                'password' => '$2y$10$AAP72bmlwXXxK6CKSfpZhuNvW695u1F9AUYjdqcRdwb5LE96m.LPW',
+                'remember_token' => 'Gcb5ZUjjrSD4kUFBmU1thu9gZ0ytCq62SMvo1YMWb7Ewow7FEiUrDwCergPY',
                 'created_at' => '2023-10-13 15:35:41',
-                'updated_at' => '2023-10-14 04:52:53',
+                'updated_at' => '2023-11-15 15:08:59',
                 'deleted_at' => NULL,
             ),
             1 => 

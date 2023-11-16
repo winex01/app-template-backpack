@@ -25,6 +25,15 @@ class AssignRolesAndPermissionsToAdminUser extends Seeder
             $role->givePermissionTo($permissions);
             
             $user->assignRole($role);  	
+            
+        }
+        
+        // assign all permissions that don't belong to Roles to users also
+        $permissionsWithoutRole = Permission::whereDoesntHave('roles')->get();
+
+        if (!$permissionsWithoutRole->isEmpty()) {
+
+            $user->syncPermissions($permissionsWithoutRole);    
         }
 
     }

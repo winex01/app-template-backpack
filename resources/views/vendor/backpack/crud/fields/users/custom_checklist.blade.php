@@ -31,6 +31,7 @@
     $options = collect($field['options']);
     $unGroupPermissions = $options->reject(function ($option) use ($roles) {
         foreach ($roles as $prefix) {
+            $prefix = \Str::of($prefix)->snake();
             if (strcasecmp(substr($option, 0, strlen($prefix)), $prefix) === 0) {
                 return true;
             }
@@ -72,8 +73,8 @@
     @foreach ($roles as $role)
         @php
             $permissions = collect($field['options'])->filter(function ($item) use ($role) {
-                // return false !== stristr($item, $role);
-                return str_starts_with(strtolower($item), strtolower($role));
+                $prefix = \Str::of($role)->snake();
+                return str_starts_with(strtolower($item), strtolower($prefix));
             })->toArray();
 
             if (empty($permissions)) {

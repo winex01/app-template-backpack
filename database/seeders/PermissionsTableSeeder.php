@@ -250,8 +250,8 @@ class PermissionsTableSeeder extends Seeder
                 'name' => 'admin_activity_log',
                 'guard_name' => 'web',
                 'created_at' => '2023-10-21 05:27:29',
-                'updated_at' => '2023-10-21 05:27:29',
-                'deleted_at' => NULL,
+                'updated_at' => '2023-11-15 14:48:33',
+                'deleted_at' => '2023-11-15 14:48:33',
             ),
             26 => 
             array (
@@ -305,6 +305,24 @@ class PermissionsTableSeeder extends Seeder
                 'guard_name' => 'web',
                 'created_at' => '2023-11-15 12:04:52',
                 'updated_at' => '2023-11-15 12:04:52',
+                'deleted_at' => NULL,
+            ),
+            32 => 
+            array (
+                'id' => 34,
+                'name' => 'activity_logs_list',
+                'guard_name' => 'web',
+                'created_at' => '2023-11-15 14:46:50',
+                'updated_at' => '2023-11-16 01:40:22',
+                'deleted_at' => NULL,
+            ),
+            33 => 
+            array (
+                'id' => 35,
+                'name' => 'activity_logs_show',
+                'guard_name' => 'web',
+                'created_at' => '2023-11-15 14:46:58',
+                'updated_at' => '2023-11-16 01:40:29',
                 'deleted_at' => NULL,
             ),
         ));
