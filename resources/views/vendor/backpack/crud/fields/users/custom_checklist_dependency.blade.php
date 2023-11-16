@@ -70,7 +70,7 @@
 
       <div class="row">
           <div class="col-sm-12">
-              <label>{!! $primary_dependency['label'] !!}</label>
+              <label class="fw-bold">{!! $primary_dependency['label'] !!}</label>
               @include('crud::fields.inc.translatable_icon', ['field' => $primary_dependency])
           </div>
       </div>
@@ -122,7 +122,7 @@
 
       <div class="row">
           <div class="col-sm-12">
-              <label>{!! $secondary_dependency['label'] !!}</label>
+              <label class="fw-bold">{!! $secondary_dependency['label'] !!}</label>
               @include('crud::fields.inc.translatable_icon', ['field' => $secondary_dependency])
           </div>
       </div>
