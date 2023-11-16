@@ -66,8 +66,9 @@
 
     <div class="container-fluid ml-n3">
       
+      {{-- Roles start here --}}
       <div class="row">
-        <label>{!! $primary_dependency['label'] !!}</label>
+        <label class="fw-bold">{!! $primary_dependency['label'] !!}</label>
       </div>
 
       <div class="row">
@@ -88,7 +89,21 @@
 
       @php
         $roles = $primary_dependency['model']::orderBy('name', 'asc')->get();
+
+        $tempRoles = $roles->pluck('name')->toArray();
+        $options = App\Models\Permission::all();//->pluck('name');
+        $unGroupPermissions = $options->reject(function ($option) use ($tempRoles) {
+            foreach ($tempRoles as $prefix) {
+                $prefix = \Str::of($prefix)->snake();
+                if (strcasecmp(substr($option->name, 0, strlen($prefix)), $prefix) === 0) {
+                    return true;
+                }
+            }
+            return false;
+        });
+
       @endphp
+
       @foreach ($roles as $connected_entity_entry)
           <div class="col-sm-{{ isset($primary_dependency['number_columns']) ? intval(12/$primary_dependency['number_columns']) : '4'}}">
               <div class="checkbox">
@@ -119,15 +134,59 @@
 
       <br>
 
+      {{-- Permissions start here --}}
       <div class="row">
-        <label>{!! $secondary_dependency['label'] !!}</label>
+        <label class="fw-bold">{!! $secondary_dependency['label'] !!}</label>
+      </div>
+      
+      <hr>
+      <div class="row">
+          <div class="col-sm-12">
+              <label class="">{{  __('--') }}</label>
+          </div>
       </div>
 
+      @foreach ($unGroupPermissions as $connected_entity_entry)
+        <div class="col-sm-{{ isset($secondary_dependency['number_columns']) ? intval(12/$secondary_dependency['number_columns']) : '4'}}">
+            <div class="checkbox">
+                <label class="font-weight-normal">
+                <input type="checkbox"
+                    class = 'secondary_list'
+                    data-id = "{{ $connected_entity_entry->id }}"
+                    @foreach ($secondary_dependency as $attribute => $value)
+                        @if (is_string($attribute) && $attribute != 'value')
+                          @if ($attribute=='name')
+                            {{ $attribute }}="{{ $value }}_show[]"
+                          @else
+                            {{ $attribute }}="{{ $value }}"
+                          @endif
+                        @endif
+                    @endforeach
+                    value="{{ $connected_entity_entry->id }}"
+
+                    @if( ( isset($field['value']) && is_array($field['value']) && (  in_array($connected_entity_entry->id, $field['value'][1]->pluck('id', 'id')->toArray()) || isset( $secondary_ids[$connected_entity_entry->id])) || ( old($secondary_dependency['name']) &&   in_array($connected_entity_entry->id, old($secondary_dependency['name'])) )))
+                        checked = "checked"
+                        @if(isset( $secondary_ids[$connected_entity_entry->id]))
+                          disabled = disabled
+                        @endif
+                    @endif > 
+                      {{ ucwords(str_replace('_', ' ', $connected_entity_entry->{$secondary_dependency['attribute']})) }}
+                </label>
+            </div>
+        </div>
+      @endforeach
+
       @foreach ($roles as $role)
+        @php
+            if ($role->permissions->isEmpty()) {
+              // escape loop for roles that don't have permissions
+              continue;
+            }
+        @endphp
         <hr>
         <div class="row">
             <div class="col-sm-12">
-                <label class="">{{  ucwords(str_replace('_', ' ', $role->name)) }}</label>
+                <label class="">{{  ucwords(str_replace('_', ' ', $role->name .'')) }}</label>
             </div>
         </div>
 

@@ -41,7 +41,7 @@
 @endphp
 
 @include('crud::fields.inc.wrapper_start')
-    <label>{!! $field['label'] !!}</label>
+    <label class="fw-bold">{!! $field['label'] !!}</label>
     @include('crud::fields.inc.translatable_icon')
 
     <input type="hidden" value='@json($field['value'])' name="{{ $field['name'] }}">
@@ -51,7 +51,7 @@
         <hr>
         <div class="row">
             <div class="col-sm-12">
-                <label class="">{{ __('Misc.') }}</label>
+                <label class="">{{ __('--') }}</label>
             </div>
         </div>
         
