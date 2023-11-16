@@ -62,7 +62,7 @@ class TelescopeServiceProvider extends TelescopeApplicationServiceProvider
         // Laravel Telescope ignore this gate when APP_ENV=LOCAL, Telescope can be access regardless of user permissions, to test change it to dev/production
         Gate::define('viewTelescope', function ($user) {
 
-            $adminEmails = User::permission('admin_telescope')->pluck('email')->toArray();
+            $adminEmails = User::permission('admin.telescope')->pluck('email')->toArray();
 
             return in_array($user->email, $adminEmails);
 

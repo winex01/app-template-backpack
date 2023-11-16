@@ -25,7 +25,7 @@ class Debugbar
             \Debugbar::disable();
         }
         
-        if (auth()->check() && auth()->user()->can('admin_debugbar')) {
+        if (auth()->check() && auth()->user()->can('admin.debugbar')) {
             
             \Debugbar::enable();
             

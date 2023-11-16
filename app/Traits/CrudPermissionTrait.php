@@ -35,7 +35,7 @@ trait CrudPermissionTrait
         }
 
         // default
-        $this->crud->denyAccess($this->operations);
+        $this->crud->denyAccess($this->operations); 
 
         // get context
         $table = $this->crud->getModel()->getTable();
@@ -48,16 +48,13 @@ trait CrudPermissionTrait
 
         // enable operations depending on permission
         foreach ($this->operations as $operation) {
-            $permission = $table . '_' . $operation;
+            $permission = $table . '.' . $operation;
 
             if ($user->can($permission)) {
                 $this->crud->allowAccess($operation);
             }
         }
     }
-
-    
-
 }
 
 /* 

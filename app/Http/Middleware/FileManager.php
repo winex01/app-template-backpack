@@ -20,7 +20,7 @@ class FileManager
         if (
             auth()->check() && 
             $request->is($configElfidnerUrl) && 
-            auth()->user()->cannot('admin_file_manager')
+            auth()->user()->cannot('admin.file_manager')
         ) {
             abort(403);
         }

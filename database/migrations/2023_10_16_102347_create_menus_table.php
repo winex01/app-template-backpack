@@ -16,7 +16,11 @@ return new class extends Migration
             $table->string('label', 100);
             $table->string('url')->nullable();
             $table->string('icon')->nullable();
-            $table->string('permission')->nullable();
+            
+            $table->foreignId('permission_id')
+                ->nullable()
+                ->constrained();
+        
             $table->boolean('open_new_tab')->default(false);
             $table->integer('parent_id')->unsigned()->nullable();
             $table->integer('lft')->unsigned()->nullable();
