@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Role;
 use App\Models\User;
 use App\Models\Permission;
+use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
@@ -20,7 +21,8 @@ class AssignRolesAndPermissionsToAdminUser extends Seeder
         $roles = Role::all();
 
         foreach ($roles as $role) {
-            $permissions = Permission::where('name', 'like', '%' . $role->name . '%')->get();
+            $prefix = Str::of($role->name)->snake();
+            $permissions = Permission::where('name', 'like', '%' . $prefix . '%')->get();
             
             $role->givePermissionTo($permissions);
             
