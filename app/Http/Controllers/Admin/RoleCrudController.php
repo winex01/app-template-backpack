@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Traits\CrudPermissionTrait;
+use App\Traits\ExtendBackpack\ExtendBackpackTrait;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\PermissionManager\app\Http\Requests\RoleStoreCrudRequest as StoreRequest;
 use Backpack\PermissionManager\app\Http\Requests\RoleUpdateCrudRequest as UpdateRequest;
@@ -16,7 +16,7 @@ class RoleCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\ReviseOperation\ReviseOperation;
 
-    use CrudPermissionTrait;
+    use ExtendBackpackTrait;
 
     public function setup()
     {
@@ -38,7 +38,7 @@ class RoleCrudController extends CrudController
             $this->crud->denyAccess('delete');
         }
 
-        $this->setAccessUsingPermissions(); 
+        $this->extendBackpack();
     }
 
     public function setupListOperation()

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Traits\CrudPermissionTrait;
+use App\Traits\ExtendBackpack\ExtendBackpackTrait;
 use Illuminate\Support\Facades\Hash;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\PermissionManager\app\Http\Requests\UserStoreCrudRequest as StoreRequest;
@@ -22,8 +22,8 @@ class UserCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
     use \Backpack\ReviseOperation\ReviseOperation;
 
-    use CrudPermissionTrait;
-
+    use ExtendBackpackTrait;
+    
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
      * 
@@ -34,7 +34,7 @@ class UserCrudController extends CrudController
         $this->crud->setModel(config('backpack.permissionmanager.models.user'));
         $this->crud->setRoute(backpack_url('user'));
 
-        $this->setAccessUsingPermissions(); 
+        $this->extendBackpack();
     }
 
     /**

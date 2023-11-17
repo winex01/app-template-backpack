@@ -1,17 +1,12 @@
 <?php
 
-namespace App\Traits;
-
-use Illuminate\Support\Str;
-use App\Traits\SetEntityNameStringsTrait;
+namespace App\Traits\ExtendBackpack;
 
 /**
  * CrudPermissionTrait: use Permissions to configure Backpack
  */
 trait CrudPermissionTrait
 {
-    use SetEntityNameStringsTrait;
-
     // the operations defined for CRUD controller
     public array $operations = ['list', 'show', 'create', 'update', 'delete', 'revise'];
 

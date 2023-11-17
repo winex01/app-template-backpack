@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Traits\CrudPermissionTrait;
+use App\Traits\ExtendBackpack\ExtendBackpackTrait;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
-use Backpack\PermissionManager\app\Models\Permission;
 
 /**
  * Class MenuCrudController
@@ -22,7 +21,7 @@ class MenuCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\ReorderOperation;
     use \Backpack\ReviseOperation\ReviseOperation;
 
-    use CrudPermissionTrait;
+    use ExtendBackpackTrait;
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
@@ -34,6 +33,7 @@ class MenuCrudController extends CrudController
         CRUD::setModel(\App\Models\Menu::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/menu');
 
+        // TODO:: fix show/preview operation access
         $this->setAccessUsingPermissions();
 
         // TODO:: review/check reorder button permissions
@@ -65,17 +65,18 @@ class MenuCrudController extends CrudController
         CRUD::field('label')->validationRules('required|min:3');
         CRUD::setFromDb(); // set fields from db columns.
 
-        $this->crud->removeFields($this->reorderColumns());
-
-        CRUD::modifyField('permission',[   // select_from_array
-            'type'        => 'select_from_array',
-            'options'     => Permission::select('name')->pluck('name', 'name'),
-            'allows_null' => true,
-        ]);
-
         $iconLink = 'https://icons8.com/line-awesome';
         $this->crud->modifyField('icon', [
             'hint' => '<a href="'.$iconLink.'" target="_blank">'.$iconLink.'</a> '
+        ]);
+
+        $this->crud->removeFields($this->removeColumns());
+        
+        $this->crud->addField([
+            'name'  => 'permission_id',
+            'label' => "Permission",
+            'type'  => 'select',
+            'validationRules' => 'required',
         ]);
     }
 
@@ -88,14 +89,6 @@ class MenuCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
-    }
-
-    protected function setupReorderOperation()
-    {
-        // model attribute to be shown on draggable items
-        CRUD::set('reorder.label', 'label');
-        // maximum number of nesting allowed
-        CRUD::set('reorder.max_level', 3);
     }
     
     // extend update operation
@@ -137,16 +130,35 @@ class MenuCrudController extends CrudController
     {
         CRUD::setFromDb(); // set columns from db columns.
 
-        $this->crud->removeColumns($this->reorderColumns());
+        $this->crud->removeColumns($this->removeColumns());
+    
+        // $this->crud->modifyColumn('permission_id', [
+        //     'type' => 'select',
+        // ]);
+        
+    
+
+        $this->columnBelongsTo('permission_id');
+
     }
 
-    private function reorderColumns()
+    protected function setupReorderOperation()
+    {
+        // model attribute to be shown on draggable items
+        CRUD::set('reorder.label', 'label');
+        // maximum number of nesting allowed
+        CRUD::set('reorder.max_level', 3);
+    }
+
+    private function removeColumns()
     {
         return [
             'parent_id',
             'lft',
             'rgt',
             'depth',
+            'depth',
+            // 'permission_id',
         ];
     }
     
