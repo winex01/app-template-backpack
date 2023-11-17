@@ -34,7 +34,7 @@ class MenuCrudController extends CrudController
         CRUD::setRoute(config('backpack.base.route_prefix') . '/menu');
 
         // TODO:: fix show/preview operation access
-        $this->setAccessUsingPermissions();
+        $this->extendBackpack();
 
         // TODO:: review/check reorder button permissions
         // parameters add 'reorder' permission to the existing/default crud operation permission
@@ -132,13 +132,7 @@ class MenuCrudController extends CrudController
 
         $this->crud->removeColumns($this->removeColumns());
     
-        // $this->crud->modifyColumn('permission_id', [
-        //     'type' => 'select',
-        // ]);
-        
-    
-
-        $this->columnBelongsTo('permission_id');
+        $this->columnBelongsTo('permission_id')->afterColumn('icon');
 
     }
 
@@ -158,7 +152,6 @@ class MenuCrudController extends CrudController
             'rgt',
             'depth',
             'depth',
-            // 'permission_id',
         ];
     }
     
